@@ -3,4 +3,4 @@
 
 
 [Monnbank]: https://www.moonbank.me
-[English Docs] : https://github.com/moonbank/moonbank-official-api-docs/blob/main/README.md
+[English Docs]: https://github.com/moonbank/moonbank-official-api-docs/blob/master/README.md
