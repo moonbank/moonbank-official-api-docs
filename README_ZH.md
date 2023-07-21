@@ -1,5 +1,5 @@
 # moonbank官方文档
-[Monnbank]API开发者文档([English Docs][])。
+[Monnbank]API开发者文档([English Docs]())。
 
 
 [Monnbank]: https://www.moonbank.me
