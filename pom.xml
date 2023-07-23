@@ -9,7 +9,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.mine.api.demo.ApiDocsApplication</start-class>
+        <start-class>com.moonbank.ApiDocsApplication</start-class>
         <java.version>1.8</java.version>
         <lombok.version>1.18.24</lombok.version>
         <spring-boot.version>2.5.14</spring-boot.version>
@@ -17,6 +17,8 @@
         <swagger.core.version>1.6.2</swagger.core.version>
         <swagger-annotations.version>1.5.22</swagger-annotations.version>
         <knife4j.version>3.0.2</knife4j.version>
+        <version.hutool>5.8.4</version.hutool>
+        <fastJson.version>1.2.46</fastJson.version>
     </properties>
 
     <parent>
@@ -42,6 +44,18 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${version.hutool}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastJson.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
