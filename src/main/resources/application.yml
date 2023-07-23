@@ -5,8 +5,3 @@ spring:
   application:
     name: @artifactId@
 
-# swagger配置
-swagger:
-  title: 消息中心模块接口文档
-  license: Powered By zito
-  licenseUrl: https://www.piggy.com

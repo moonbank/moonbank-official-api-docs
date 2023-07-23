@@ -7,9 +7,7 @@ import com.moonbank.constants.MoonbankMethods;
 import com.moonbank.models.ApiResponse;
 import com.moonbank.models.MbApiBaseRequest;
 import com.moonbank.models.SystemClockRequest;
-import com.moonbank.utils.AESUtils;
 import com.moonbank.utils.MoonbankEncryptUtil;
-import org.apache.logging.log4j.util.Base64Util;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
