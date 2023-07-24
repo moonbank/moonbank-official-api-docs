@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.moonbank.constants.MoonbankMethods;
 import com.moonbank.models.ApiResponse;
+import com.moonbank.models.BankcardTemplateListRequest;
 import com.moonbank.models.MbApiBaseRequest;
 import com.moonbank.models.SystemClockRequest;
 import com.moonbank.utils.MoonbankEncryptUtil;
@@ -44,19 +45,37 @@ public class MoonbankApi {
     public static void getSystemClock() {
         SystemClockRequest request = new SystemClockRequest();
         String result = postData(MoonbankMethods.SYS_CLOCK, request);
-        System.out.println("getSystemClock response:  " + result);
+        System.out.println("getSystemClock response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
         });
-        System.out.println("getSystemClock response:  " + result);
+        System.out.println("getSystemClock response Object:  " + apiResponse);
         if (apiResponse.isSuccess()) {
             String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
             System.out.println("getSystemClock encode===>" + descStr);
         }
     }
 
+    /**
+     * get template list
+     */
+    public static void bankcardTemplateList() {
+        BankcardTemplateListRequest request = new BankcardTemplateListRequest();
+        String result = postData(MoonbankMethods.BANKCARD_TEMPLATE_LIST, request);
+        System.out.println("bankcardTemplateList response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("bankcardTemplateList response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("bankcardTemplateList encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
-        getSystemClock();
+//        getSystemClock();
+
+        bankcardTemplateList();
     }
 
 

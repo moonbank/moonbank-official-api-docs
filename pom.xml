@@ -13,10 +13,6 @@
         <java.version>1.8</java.version>
         <lombok.version>1.18.24</lombok.version>
         <spring-boot.version>2.5.14</spring-boot.version>
-        <swagger.fox.version>3.0.0</swagger.fox.version>
-        <swagger.core.version>1.6.2</swagger.core.version>
-        <swagger-annotations.version>1.5.22</swagger-annotations.version>
-        <knife4j.version>3.0.2</knife4j.version>
         <version.hutool>5.8.4</version.hutool>
         <fastJson.version>1.2.46</fastJson.version>
     </properties>
