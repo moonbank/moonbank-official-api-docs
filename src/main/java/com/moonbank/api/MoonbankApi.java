@@ -3,6 +3,7 @@ package com.moonbank.api;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.google.common.base.Strings;
 import com.moonbank.constants.MoonbankMethods;
 import com.moonbank.models.*;
 import com.moonbank.utils.MoonbankEncryptUtil;
@@ -36,11 +37,11 @@ public class MoonbankApi {
     private static String APP_SECRET = "123456";
 
     /**
-     * get system clock
+     * get system clock(system status)
      */
     public static void getSystemClock() {
         SystemClockRequest request = new SystemClockRequest();
-        String result = postData(MoonbankMethods.SYS_CLOCK, request);
+        String result = postData(null,MoonbankMethods.SYS_CLOCK, request);
         System.out.println("getSystemClock response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
         });
@@ -56,7 +57,7 @@ public class MoonbankApi {
      */
     public static void bankcardTemplateList() {
         BankcardTemplateListRequest request = new BankcardTemplateListRequest();
-        String result = postData(MoonbankMethods.BANKCARD_TEMPLATE_LIST, request);
+        String result = postData(null,MoonbankMethods.BANKCARD_TEMPLATE_LIST, request);
         System.out.println("bankcardTemplateList response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
         });
@@ -69,14 +70,15 @@ public class MoonbankApi {
 
     /**
      * user register,get user unique ID
+     *
      * @param mobilePrefix mobile prefix
      * @param mobileNumber mobile number
      */
-    public static void userRegister(String mobilePrefix,String mobileNumber) {
+    public static void userRegister(String mobilePrefix, String mobileNumber) {
         UserRegisterRequest request = new UserRegisterRequest();
         request.setMobilePrefix(mobilePrefix);
         request.setMobileNumber(mobileNumber);
-        String result = postData(MoonbankMethods.USER_REGISTER, request);
+        String result = postData(null,MoonbankMethods.USER_REGISTER, request);
         System.out.println("userRegister response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
         });
@@ -87,24 +89,46 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * set user profession and user info
+     * @param uId
+     * @param mobilePrefix
+     * @param mobileNumber
+     */
+    public static void setUserProfession(String uId,String mobilePrefix, String mobileNumber) {
+        SetUserProfessionRequest request = new SetUserProfessionRequest();
+        request.setMobilePrefix(mobilePrefix);
+        request.setMobileNumber(mobileNumber);
+        String result = postData(uId,MoonbankMethods.SET_USER_PROFESSION, request);
+        System.out.println("setUserProfession response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("setUserProfession response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("setUserProfession encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
 
 //        bankcardTemplateList();
 
-        userRegister("86","18888888888");
+//        userRegister("86","18888888888");
+        setUserProfession("123","86", "18888888888");
     }
-
 
     /**
      * send post data
-     *
+     * @param uId
      * @param method
      * @param request
      * @return
+     *
      */
-    private static String postData(String method, MbApiBaseRequest request) {
+    private static String postData(String uId, String method, MbApiBaseRequest request) {
 
         String jsonDataString = JSON.toJSONString(request);
 
@@ -114,6 +138,10 @@ public class MoonbankApi {
         String sendContent = method + jsonDataString;
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
         HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appid", APP_ID).header("sign", signature);
+
+        if (!Strings.isNullOrEmpty(uId)) {
+            httpRequest.header("uId", uId);
+        }
 
         System.out.println("post all headers: " + httpRequest.headers());
 

@@ -11,6 +11,9 @@ public class MoonbankMethods {
     // user register
     public static String USER_REGISTER = "/user/register";
 
+    // set user profession
+    public static String SET_USER_PROFESSION = "/user/setProfession";
+
 
 
 }
