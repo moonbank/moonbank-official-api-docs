@@ -24,6 +24,48 @@ sign 参数是使用对应接口**PATH** 和对 **所有参数按照字典排序
 
 例如：对于如下的请求参数进行签名
 
+```bash
+ "https://test-api.moonbank.me/user/register"
+```
+* 注册账户，以 mobileNumber=13800138000, mobilePrefix=86 为例
+```java
+mobilePrefix = 86
+mobileNumber = 18888888888 
+```
+* 按字典排序之后，为
+```java
+mobileNumber = 18888888888
+mobilePrefix = 86
+```
+* 生成待加密的字符串
+```
+dataJson = '{"mobileNumber":"18888888888","mobilePrefix":"86"}'
+  
+```
+
+* 接口PATH 与 dataJson 拼接
+```
+originString = '/user/register{"mobileNumber":"18888888888","mobilePrefix":"86"}'
+```
+
+
+* 接口originString 进行**base64**编码
+```
+base64String = 'L3VzZXIvcmVnaXN0ZXJ7Im1vYmlsZU51bWJlciI6IjE4ODg4ODg4ODg4IiwibW9iaWxlUHJlZml4IjoiODYifQ=='
+```
+
+* 使用secret作为密钥对base64String 进行**AES128** 加密
+```
+signature = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
+```
+
+* 将appId 与 加密后得到的签名字符串，分别放入请求的header中
+``` java
+request.header("appId", xxxxxx);
+request.header("sign", "6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y");
+```
+
+## 响应数据
 
 [Moonbank]: https://www.moonbank.me
 

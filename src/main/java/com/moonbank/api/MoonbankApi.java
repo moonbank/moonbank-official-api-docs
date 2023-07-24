@@ -116,8 +116,8 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-//        userRegister("86","18888888888");
-        setUserProfession("123","86", "18888888888");
+        userRegister("86","18888888888");
+//        setUserProfession("123","86", "18888888888");
     }
 
     /**
