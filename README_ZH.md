@@ -22,10 +22,10 @@
 
 sign 参数是使用对应接口**PATH** 和对 **所有参数按照字典排序之后转换为JSON字符串**拼接，进行 **BASE64**编码，然后使用 **appSecret**作为密钥进行 **AES128** 加密得到。
 
-例如：对于如下的请求参数进行签名
+例如：对于如下的请求参数进行签名,密钥字符串为 **123456**
 
 ```bash
- "https://test-api.moonbank.me/user/register"
+curl  "https://test-api.moonbank.me/user/register"
 ```
 * 注册账户，以 mobileNumber=13800138000, mobilePrefix=86 为例
 ```java
@@ -40,14 +40,12 @@ mobilePrefix = 86
 * 生成待加密的字符串
 ```
 dataJson = '{"mobileNumber":"18888888888","mobilePrefix":"86"}'
-  
 ```
 
 * 接口PATH 与 dataJson 拼接
 ```
 originString = '/user/register{"mobileNumber":"18888888888","mobilePrefix":"86"}'
 ```
-
 
 * 接口originString 进行**base64**编码
 ```
