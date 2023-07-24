@@ -8,6 +8,9 @@ public class MoonbankMethods {
     // bankcard info list
     public static String BANKCARD_TEMPLATE_LIST = "/bankcard/template/list";
 
+    // user register
+    public static String USER_REGISTER = "/user/register";
+
 
 
 }

@@ -4,10 +4,7 @@ import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.moonbank.constants.MoonbankMethods;
-import com.moonbank.models.ApiResponse;
-import com.moonbank.models.BankcardTemplateListRequest;
-import com.moonbank.models.MbApiBaseRequest;
-import com.moonbank.models.SystemClockRequest;
+import com.moonbank.models.*;
 import com.moonbank.utils.MoonbankEncryptUtil;
 
 import java.net.InetSocketAddress;
@@ -37,7 +34,6 @@ public class MoonbankApi {
 
     // SECRET
     private static String APP_SECRET = "123456";
-
 
     /**
      * get system clock
@@ -71,11 +67,33 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * user register,get user unique ID
+     * @param mobilePrefix mobile prefix
+     * @param mobileNumber mobile number
+     */
+    public static void userRegister(String mobilePrefix,String mobileNumber) {
+        UserRegisterRequest request = new UserRegisterRequest();
+        request.setMobilePrefix(mobilePrefix);
+        request.setMobileNumber(mobileNumber);
+        String result = postData(MoonbankMethods.USER_REGISTER, request);
+        System.out.println("userRegister response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("userRegister response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("userRegister encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
 
-        bankcardTemplateList();
+//        bankcardTemplateList();
+
+        userRegister("86","18888888888");
     }
 
 
