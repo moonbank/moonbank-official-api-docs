@@ -1,6 +1,6 @@
 # moonbank官方文档
 
-[Moonbank]API开发者文档([English Docs]())。
+[Moonbank]API开发者文档([English Docs](./README.md))。
 
 # 介绍
 
@@ -81,4 +81,3 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 
 [Moonbank]: https://www.moonbank.me
 
-[English Docs]: https://github.com/moonbank/moonbank-official-api-docs/blob/master/README.md
