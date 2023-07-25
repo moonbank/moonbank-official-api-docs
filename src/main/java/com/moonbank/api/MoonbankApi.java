@@ -112,11 +112,11 @@ public class MoonbankApi {
 
 
     public static void main(String[] args) {
-//        getSystemClock();
+        getSystemClock();
 
 //        bankcardTemplateList();
 
-        userRegister("86","18888888888");
+//        userRegister("86","18888888888");
 //        setUserProfession("123","86", "18888888888");
     }
 

@@ -65,6 +65,20 @@ request.header("sign", "6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3T
 
 ## 响应数据
 
+所有接口返回数据均为有效JSON数据。结构如下：
+```javascript
+{
+        "total":9, 
+        "success": true,
+	"result": "JkLoxhGUGR8WB3ze8X1HfRAFnv0DJ5zy+Bm//Zvk4TII9XC+n3ppjhm2OFes0Wrh",
+	"code": 1,
+	"message": "Successful!"
+}
+```
+result 字段为数据实体，需要使用密钥进行AES128 解密，然后进行base64解码。得到完整的JSON字符串。
+
+
+
 [Moonbank]: https://www.moonbank.me
 
 [English Docs]: https://github.com/moonbank/moonbank-official-api-docs/blob/master/README.md
