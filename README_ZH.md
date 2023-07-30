@@ -54,13 +54,18 @@ base64String = 'L3VzZXIvcmVnaXN0ZXJ7Im1vYmlsZU51bWJlciI6IjE4ODg4ODg4ODg4IiwibW9i
 
 * 使用secret作为密钥对base64String 进行**AES128** 加密
 ```
-signature = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
+aes128String = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
+```
+
+* 对aes加密后字符串进行**MD5** 加密得到32位摘要字符串
+```
+signature = '44712f58a9455526e37567a4f9c67137'
 ```
 
 * 将appId 与 加密后得到的签名字符串，分别放入请求的header中
 ``` java
 request.header("appId", xxxxxx);
-request.header("sign", "6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y");
+request.header("sign", "44712f58a9455526e37567a4f9c67137");
 ```
 
 ## 响应数据
@@ -87,7 +92,7 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 }
 ```
 
-对 result 进行AES128 解密后，得到数据:
+对 result 进行解密后，得到数据:
 
 ```javascript
 {

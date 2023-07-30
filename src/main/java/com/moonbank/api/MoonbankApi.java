@@ -6,6 +6,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.google.common.base.Strings;
 import com.moonbank.constants.MoonbankMethods;
 import com.moonbank.models.*;
+import com.moonbank.utils.Base64ImgUtil;
 import com.moonbank.utils.MoonbankEncryptUtil;
 
 import java.net.InetSocketAddress;
@@ -15,9 +16,9 @@ import java.nio.charset.StandardCharsets;
 public class MoonbankApi {
 
     // test env gateway
-    private static final String GATEWAY = "https://test.moonbank.me/api-web";
+//    private static final String GATEWAY = "https://test.moonbank.me/api-web";
     // dev env gateway
-//    private static final String GATEWAY = "http://localhost:8848/api-web";
+    private static final String GATEWAY = "http://localhost:8848/api-web";
 
     private static final int NOTIFY_TIMEOUT = 15000;
 
@@ -94,13 +95,21 @@ public class MoonbankApi {
     /**
      * set user profession and user info
      * @param uId
-     * @param mobilePrefix
-     * @param mobileNumber
      */
-    public static void setUserProfession(String uId,String mobilePrefix, String mobileNumber) {
-        SetUserProfessionRequest request = new SetUserProfessionRequest();
-        request.setMobilePrefix(mobilePrefix);
-        request.setMobileNumber(mobileNumber);
+    public static void setUserProfession(String uId) {
+        UserSetProfessionRequest request = new UserSetProfessionRequest();
+        request.setFirst_name("ming");
+        request.setFirst_name_en("ming");
+        request.setLast_name("li");
+        request.setLast_name_en("li");
+        request.setBirthday("2000-01-01");
+        request.setAnnual_income("100000");
+        request.setCountry("CN");
+        request.setId_type("passport");
+        request.setNumber("123456");
+        request.setExpiry_date("2027-01-01");
+        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport.jpg","jpg"));
+        request.setBackImg("");
         String result = postData(uId,MoonbankMethods.SET_USER_PROFESSION, request);
         System.out.println("setUserProfession response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -116,10 +125,10 @@ public class MoonbankApi {
     public static void main(String[] args) {
 //        getSystemClock();
 
-        bankcardTemplateList();
+//        bankcardTemplateList();
 
 //        userRegister("6","18888888886");
-//        setUserProfession("hbno9i7z6sp9id8h","86", "18888888888");
+        setUserProfession("hbno9i7z6sp9id8h");
     }
 
     /**

@@ -1,4 +1,5 @@
-package com.mine.util.password;
+package com.moonbank.utils;
+
 
 import sun.misc.BASE64Decoder;
 
