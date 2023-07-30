@@ -183,7 +183,7 @@ result 解密后json字符串
 | ccy       | 卡片币种 |
 | description1       | 卡片描述1 |
 | description2  | 卡片描述2 |
-| id   | 卡片ID |
+| id   | 卡片ID(卡片唯一标识，可作为申请卡片参数) |
 | img          | 卡片图片 |
 | monthFee       | 月费(USD) |
 | rechargeFee   | 充值费率 |
