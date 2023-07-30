@@ -15,9 +15,9 @@ import java.nio.charset.StandardCharsets;
 public class MoonbankApi {
 
     // test env gateway
-//    private static final String GATEWAY = "https://test.moonbank.me/api-web";
+    private static final String GATEWAY = "https://test.moonbank.me/api-web";
     // dev env gateway
-    private static final String GATEWAY = "http://localhost:8848/api-web";
+//    private static final String GATEWAY = "http://localhost:8848/api-web";
 
     private static final int NOTIFY_TIMEOUT = 15000;
 
@@ -116,9 +116,9 @@ public class MoonbankApi {
     public static void main(String[] args) {
 //        getSystemClock();
 
-//        bankcardTemplateList();
+        bankcardTemplateList();
 
-        userRegister("6","18888888886");
+//        userRegister("6","18888888886");
 //        setUserProfession("hbno9i7z6sp9id8h","86", "18888888888");
     }
 
