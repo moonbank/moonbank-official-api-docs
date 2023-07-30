@@ -146,25 +146,6 @@ result 解密后json字符串
 	"recommend": true,
 	"sortParam": 9,
 	"title": "Monthly membership card"
-}, {
-	"applyDiscount": 1,
-	"applyFee": 50.000000000000000000,
-	"bankCardNature": "VIRTUAL",
-	"bankCardSource": "VCC",
-	"bankCardType": "MASTER",
-	"categoryId": 1,
-	"ccy": "USD",
-	"description1": "• VISA，MASTER CARD supported",
-	"description2": "• Charge Cryptocurrency and fiat to the account in seconds",
-	"enable": true,
-	"hot": true,
-	"id": 2,
-	"img": "https://test.moonbank.me/static-res/bankcard/1687407359881.png",
-	"monthFee": 0.00,
-	"rechargeFee": 0.012000000000000000,
-	"recommend": true,
-	"sortParam": 8,
-	"title": "Zunyue Card"
 },
     ...
 ]
