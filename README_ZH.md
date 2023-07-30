@@ -106,11 +106,12 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 
 **HTTP请求**
 
-```http
+```shell
     # Request
+    
     POST /bankcard/template/list
     
-    example： https://test.moonbank.me/api-web/bankcard/template/list
+    example: https://test.moonbank.me/api-web/bankcard/template/list
 ```
 ```javascript
     # Response
