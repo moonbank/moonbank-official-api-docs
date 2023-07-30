@@ -68,16 +68,33 @@ request.header("sign", "6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3T
 所有接口返回数据均为有效JSON数据。结构如下：
 ```javascript
 {
-        "total":9, 
-        "success": true,
-	"result": "JkLoxhGUGR8WB3ze8X1HfRAFnv0DJ5zy+Bm//Zvk4TII9XC+n3ppjhm2OFes0Wrh",
-	"code": 1,
-	"message": "Successful!"
+        "total":9, // 当result为数据列表时，该字段为数据条数
+        "success": true, // 是否成功
+	"result": "JkLoxhGUGR8WB3ze8X1HfRAFnv0DJ5zy+Bm//Zvk4TII9XC+n3ppjhm2OFes0Wrh", // 响应数据
+	"code": 1, // 响应码
+	"message": "Successful!" // 响应描述
 }
 ```
 result 字段为数据实体，需要使用密钥进行AES128 解密，然后进行base64解码。得到完整的JSON字符串。
 
+例如用户注册接口返回
+```javascript
+{
+	"success": true,
+	"result": "argm3WWAXeDEYhDx1KinrqltNAB9KK26uevIn0I4R07k8quZi5mMCnhsbN84DT1P",
+	"code": 1,
+	"message": "Successful!"
+}
+```
 
+对 result 进行AES128 解密后，得到数据:
+
+```javascript
+{
+	"uid": "hb6oj4vj7sabfxe9"
+}
+```
+那么，用户注册成功，并且用户ID 为 'hb6oj4vj7sabfxe9'.
 
 [Moonbank]: https://www.moonbank.me
 

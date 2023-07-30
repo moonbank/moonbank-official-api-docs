@@ -15,7 +15,9 @@ import java.nio.charset.StandardCharsets;
 public class MoonbankApi {
 
     // test env gateway
-    private static final String GATEWAY = "http://localhost:8848";
+//    private static final String GATEWAY = "https://test.moonbank.me/api-web";
+    // dev env gateway
+    private static final String GATEWAY = "http://localhost:8848/api-web";
 
     private static final int NOTIFY_TIMEOUT = 15000;
 
@@ -112,12 +114,12 @@ public class MoonbankApi {
 
 
     public static void main(String[] args) {
-        getSystemClock();
+//        getSystemClock();
 
 //        bankcardTemplateList();
 
-//        userRegister("86","18888888888");
-//        setUserProfession("123","86", "18888888888");
+        userRegister("6","18888888886");
+//        setUserProfession("hbno9i7z6sp9id8h","86", "18888888888");
     }
 
     /**
@@ -137,7 +139,7 @@ public class MoonbankApi {
 
         String sendContent = method + jsonDataString;
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
-        HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appid", APP_ID).header("sign", signature);
+        HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appId", APP_ID).header("sign", signature);
 
         if (!Strings.isNullOrEmpty(uId)) {
             httpRequest.header("uId", uId);
