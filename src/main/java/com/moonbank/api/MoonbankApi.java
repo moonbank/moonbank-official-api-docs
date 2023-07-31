@@ -131,7 +131,7 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-        userRegister("1","18888888867","188888888662@188.com");
+        userRegister("1","18888888117","1888888881662@188.com");
 //        setUserProfession("hgqo2wfu73lla3ny");
     }
 
@@ -151,6 +151,7 @@ public class MoonbankApi {
         System.out.println("body：" + jsonDataString);
 
         String sendContent = method + jsonDataString;
+        System.out.println("originString="+sendContent);
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
         HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appId", APP_ID).header("sign", signature);
 

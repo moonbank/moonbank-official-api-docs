@@ -28,37 +28,43 @@ sign 参数是使用对应接口**PATH** 和对 **所有参数按照字典排序
 curl  "https://test-api.moonbank.me/user/register"
 ```
 * 注册账户，以 mobileNumber=13800138000, mobilePrefix=86 为例
-```java
-mobilePrefix = 86
-mobileNumber = 18888888888 
+```javascript
+  {
+        "mobileNumber": "18888888867", 
+        "mobilePrefix": "1",
+        "email": "188888888662@188.com"
+        }
 ```
 * 按字典排序之后，为
-```java
-mobileNumber = 18888888888
-mobilePrefix = 86
+```javascript
+  {
+        "email": "188888888662@188.com",
+        "mobileNumber": "18888888867",
+        "mobilePrefix": "1"
+        }
 ```
 * 生成待加密的字符串
-```
-dataJson = '{"mobileNumber":"18888888888","mobilePrefix":"86"}'
+```javascript
+dataJson = '{"email":"188888888662@188.com","mobileNumber":"18888888867","mobilePrefix":"1"}'
 ```
 
 * 接口PATH 与 dataJson 拼接
-```
-originString = '/user/register{"mobileNumber":"18888888888","mobilePrefix":"86"}'
+```javascript
+originString = '/user/register{"email":"188888888662@188.com","mobileNumber":"18888888867","mobilePrefix":"1"}'
 ```
 
 * 接口originString 进行**base64**编码
-```
-base64String = 'L3VzZXIvcmVnaXN0ZXJ7Im1vYmlsZU51bWJlciI6IjE4ODg4ODg4ODg4IiwibW9iaWxlUHJlZml4IjoiODYifQ=='
+```javascript
+base64String = 'L3VzZXIvcmVnaXN0ZXJ7ImVtYWlsIjoiMTg4ODg4ODg4NjYyQDE4OC5jb20iLCJtb2JpbGVOdW1iZXIiOiIxODg4ODg4ODg2NyIsIm1vYmlsZVByZWZpeCI6IjEifQ=='
 ```
 
 * 使用secret作为密钥对base64String 进行**AES128** 加密
-```
+```javascript
 aes128String = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
 ```
 
 * 对aes加密后字符串进行**MD5**加密得到32位摘要字符串
-```
+```javascript
 signature = '44712f58a9455526e37567a4f9c67137'
 ```
 
@@ -85,18 +91,20 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 例如用户注册接口返回
 ```javascript
 {
-	"success": true,
-	"result": "argm3WWAXeDEYhDx1KinrqltNAB9KK26uevIn0I4R07k8quZi5mMCnhsbN84DT1P",
-	"code": 1,
-	"message": "Successful!"
+    {
+        "success": true,
+        "result": "9LOSTUUpwaho2yDtmNVfLWgqVcH+wfWKtfLpBxFLvonk8quZi5mMCnhsbN84DT1P",
+        "code": 1,
+        "message": "Successful!"
+    }
 }
 ```
 
-对 result 进行解密后，得到数据:
+对 result 进行AES128解密和Base64解码后，得到数据:
 
 ```javascript
 {
-	"uid": "hb6oj4vj7sabfxe9"
+    "uid": "hgeojte3awbrcp76"
 }
 ```
 那么，用户注册成功，并且用户ID 为 'hb6oj4vj7sabfxe9'.

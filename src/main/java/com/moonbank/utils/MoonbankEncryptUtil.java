@@ -16,7 +16,10 @@ public class MoonbankEncryptUtil {
      * @return
      */
     public static String encode(String secret, String content) {
-        String aesString = AESUtils.encode(secret, Base64.encode(content));
+        String base64String =Base64.encode(content);
+        System.out.println("base64String="+base64String);
+        String aesString = AESUtils.encode(secret, base64String);
+        System.out.println("aesString="+aesString);
         return MD5Util.digest(aesString);
     }
 
