@@ -137,11 +137,11 @@ Response of use register
 ```
 ***request fields***
 
-|field | description|required|
-| ---------- |:-------:|-------|
-| email     | user email, should not be used | YES
-| mobileNumber     | user phone number,should not be used |YES
-| mobilePrefix     | user phone country code(China 86, Korea 82, Japan 81 etc. )   | YES
+|field | description|required|type|
+| ---------- |:-------:|-------|---|
+| email     | user email, should not be used | YES |String
+| mobileNumber     | user phone number,should not be used |YES|String
+| mobilePrefix     | user phone country code(China 86, Korea 82, Japan 81 etc. )   | YES|String
 
 ```javascript
     # Response
@@ -164,9 +164,9 @@ result decrypted json string
 **Result Description**
 
 
-|field | description|
-| ---------- |:-------:|
-| uid      | user unique ID, some requests set 'uId' request header with this value |
+|field | description|type|
+| ---------- |:-------:|---|
+| uid      | user unique ID, some requests set 'uId' request header with this value |String
 
 
 
