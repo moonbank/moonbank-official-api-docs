@@ -113,6 +113,59 @@ Response of use register
 }
 ```
 
+# Moonbank APIs
+
+## User related APIs
+
+### 1. User Register
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /user/register
+    
+    example: https://test.moonbank.me/api-web/user/register
+
+    {
+        "email": "188888888662@188.com",
+        "mobileNumber": "18888888867",
+        "mobilePrefix": "1"
+    }
+```
+***request fields***
+
+|field | description|required|
+| ---------- |:-------:|-------|
+| email     | user email, should not be used | YES
+| mobileNumber     | use phone number,should not be used |YES
+| mobilePrefix     | user phone country code  | YES
+
+```javascript
+    # Response
+{
+    "success": true,
+    "result": "bOodDEqstZ82BRjTuLRE5PBmcIixXsMxNPOVqS+iyBfk8quZi5mMCnhsbN84DT1P",
+    "code": 1,
+    "message": "Successful!"
+}
+```
+
+result decrypted json string
+
+```javascript
+{
+    "uid": "hgwoxhlpzvav6m2l"
+}
+```
+
+**Result Description**
+
+
+|field | description|
+| ---------- |:-------:|
+| uid      | user unique ID, some requests set 'uId' request header with this value |
 
 
 
