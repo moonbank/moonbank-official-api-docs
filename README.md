@@ -21,7 +21,7 @@ All REST requests must use ***POST*** method, and the request body is valid JSON
 
 ## Signature
 
-sign is generate by the request path + dictionary sorted parameters JSON string (+ means string connection), then ***Base64*** encode, then ***AES128*** encrypt,then encrypt the string with ***MD5 (32 bits)***.
+sign is generate by the request path + dictionary sorted parameters JSON string (+ means string connection), then ***Base64*** encode, then ***AES128*** encrypt, then encrypt the string with ***MD5 (32 bits)***.
 
 **For example: sign the following request parameters** (the AppSecret=***123456***)
 
@@ -36,7 +36,7 @@ curl  "https://test-api.moonbank.me/user/register"
         "mobileNumber": "18888888867", 
         "mobilePrefix": "1",
         "email": "188888888662@188.com"
-        }
+  }
 ```
 
 * Dictionary sorted
@@ -45,7 +45,7 @@ curl  "https://test-api.moonbank.me/user/register"
         "email": "188888888662@188.com",
         "mobileNumber": "18888888867",
         "mobilePrefix": "1"
-        }
+  }
 ```
 
 * Parameters json string
