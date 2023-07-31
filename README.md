@@ -139,8 +139,8 @@ Response of use register
 |field | description|required|
 | ---------- |:-------:|-------|
 | email     | user email, should not be used | YES
-| mobileNumber     | use phone number,should not be used |YES
-| mobilePrefix     | user phone country code  | YES
+| mobileNumber     | user phone number,should not be used |YES
+| mobilePrefix     | user phone country code(China 86, Korea 82, Japan 81 etc. )   | YES
 
 ```javascript
     # Response
