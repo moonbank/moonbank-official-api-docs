@@ -93,7 +93,7 @@ All response is valid JSON as the follow structure
 ```
 The result field is Base64 encoded and AES128 encrypted with the appSecret, need decrypt and decode to get the JSON response data.
 
-**For example: parse the following response** (the AppSecret=***123456***)
+**For example: Parse the following response** (the AppSecret=***123456***)
 
 Response of use register
 ```javascript
