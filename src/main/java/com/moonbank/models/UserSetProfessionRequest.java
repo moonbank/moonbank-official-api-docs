@@ -13,6 +13,8 @@ public class UserSetProfessionRequest extends MbApiBaseRequest {
 
     private String last_name_en;
 
+    private String email;
+
     private String birthday;
 
     private String annual_income;

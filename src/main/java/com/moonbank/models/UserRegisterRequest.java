@@ -6,4 +6,5 @@ import lombok.Data;
 public class UserRegisterRequest extends MbApiBaseRequest{
     private String mobilePrefix;
     private String mobileNumber;
+    private String email;
 }

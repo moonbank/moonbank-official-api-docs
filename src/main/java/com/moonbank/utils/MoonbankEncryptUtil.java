@@ -1,6 +1,7 @@
 package com.moonbank.utils;
 
 import cn.hutool.core.codec.Base64;
+import com.google.common.base.Strings;
 
 /**
  * encrypt util
@@ -27,6 +28,9 @@ public class MoonbankEncryptUtil {
      * @return
      */
     public static String decode(String secret, String content) {
+        if (Strings.isNullOrEmpty(content)) {
+            return null;
+        }
         String base64String = AESUtils.decode(secret, content);
         return Base64.decodeStr(base64String);
     }

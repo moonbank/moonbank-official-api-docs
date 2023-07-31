@@ -16,9 +16,9 @@ import java.nio.charset.StandardCharsets;
 public class MoonbankApi {
 
     // test env gateway
-//    private static final String GATEWAY = "https://test.moonbank.me/api-web";
+    private static final String GATEWAY = "https://test.moonbank.me/api-web";
     // dev env gateway
-    private static final String GATEWAY = "http://localhost:8848/api-web";
+//    private static final String GATEWAY = "http://localhost:8848/api-web";
 
     private static final int NOTIFY_TIMEOUT = 15000;
 
@@ -77,10 +77,11 @@ public class MoonbankApi {
      * @param mobilePrefix mobile prefix
      * @param mobileNumber mobile number
      */
-    public static void userRegister(String mobilePrefix, String mobileNumber) {
+    public static void userRegister(String mobilePrefix, String mobileNumber,String email) {
         UserRegisterRequest request = new UserRegisterRequest();
         request.setMobilePrefix(mobilePrefix);
         request.setMobileNumber(mobileNumber);
+        request.setEmail(email);
         String result = postData(null,MoonbankMethods.USER_REGISTER, request);
         System.out.println("userRegister response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -104,12 +105,15 @@ public class MoonbankApi {
         request.setLast_name_en("li");
         request.setBirthday("2000-01-01");
         request.setAnnual_income("100000");
-        request.setCountry("CN");
+        request.setEmail("liming8666@qq.com");
+        request.setOccupation("boss");
+        request.setPosition("management");
         request.setId_type("passport");
+        request.setCountry("CN");
         request.setNumber("123456");
         request.setExpiry_date("2027-01-01");
-        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport.jpg","jpg"));
-        request.setBackImg("");
+        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport1.jpg","jpg"));
+        request.setBackImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport2.jpg","jpg"));
         String result = postData(uId,MoonbankMethods.SET_USER_PROFESSION, request);
         System.out.println("setUserProfession response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -127,8 +131,8 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-//        userRegister("6","18888888886");
-        setUserProfession("hbno9i7z6sp9id8h");
+//        userRegister("1","18888888866","18888888866@188.com");
+        setUserProfession("hgqo2wfu73lla3ny");
     }
 
     /**

@@ -57,7 +57,7 @@ base64String = 'L3VzZXIvcmVnaXN0ZXJ7Im1vYmlsZU51bWJlciI6IjE4ODg4ODg4ODg4IiwibW9i
 aes128String = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
 ```
 
-* 对aes加密后字符串进行**MD5** 加密得到32位摘要字符串
+* 对aes加密后字符串进行**MD5**加密得到32位摘要字符串
 ```
 signature = '44712f58a9455526e37567a4f9c67137'
 ```
