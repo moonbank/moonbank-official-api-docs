@@ -15,7 +15,7 @@ All REST requests must use ***POST*** method ,include the following headers, and
 
 * appId, need use **appId** as the key, put in all requests header;
 * Signature generated using a certain algorithm, need use **sign** as the key, put in all requests header;
-* All requests should set header ***'content-type'*** as  **application/json;charset=UTF-8** and request body be valid JSON.
+* All requests should set header ***'content-type'*** as  **application/json;charset=UTF-8** and request body be valid JSON(if the path not need parameter, the body should be {}).
 * Some requests should set header ***'uId'***  with the value from user register interface. 
 
 ## Signature
