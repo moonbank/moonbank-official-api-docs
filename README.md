@@ -1,5 +1,6 @@
 # Moonbank-official-api-docs
-Official Documentation for the [Monnbank][] APIs and Streams([简体中文版文档](./README_ZH.md))。
+Official Documentation for the [Monnbank][] APIs and Streams([简体中文版文档](./README_ZH.md)). 
+This project is the java version demo. you can download and run it for testing. 
 
 # Introduction
 

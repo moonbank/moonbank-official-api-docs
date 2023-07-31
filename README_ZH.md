@@ -1,7 +1,7 @@
 # moonbank官方文档
 
 [Moonbank]API开发者文档([English Docs](./README.md))。
-
+本项目是Java 版官方demo, 可以下载运行测试。
 # 介绍
 
 欢迎使用[Moonbank]开发者文档。 本文档提供了开户，设置用户KYC信息，卡片申请，充值，信息查询等相关API的使用方法介绍。
