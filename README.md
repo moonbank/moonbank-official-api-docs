@@ -162,7 +162,7 @@ result decrypted json string
 }
 ```
 
-**Result Description**
+**Result fields**
 
 
 |field | description|type|
