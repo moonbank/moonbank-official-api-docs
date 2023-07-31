@@ -105,6 +105,56 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 
 # Moonbank API参考
 
+## 用户相关接口
+
+### 1. 注册账户
+
+**HTTP请求**
+
+```javascript
+    # Request
+    
+    POST /user/register
+    
+    example: https://test.moonbank.me/api-web/user/register
+
+    {
+        "email": "188888888662@188.com",
+        "mobileNumber": "18888888867",
+        "mobilePrefix": "1"
+    }
+```
+***request 字段说明***
+| email     | 邮箱 |
+| mobileNumber     | 手机号 |
+| mobilePrefix     | 手机国家代码  |
+
+```javascript
+    # Response
+{
+    "success": true,
+    "result": "bOodDEqstZ82BRjTuLRE5PBmcIixXsMxNPOVqS+iyBfk8quZi5mMCnhsbN84DT1P",
+    "code": 1,
+    "message": "Successful!"
+}
+```
+
+result 解密后json字符串
+
+```javascript
+{
+    "uid": "hgwoxhlpzvav6m2l"
+}
+```
+
+**Result值说明**
+
+
+|返回字段 | 字段说明|
+| ---------- |:-------:|
+| uid      | 用户ID |
+
+
 ## 卡片相关接口
 
 ### 1. 获取所有卡片信息
@@ -155,9 +205,6 @@ result 解密后json字符串
     ...
 ]
 ```
-
-
-
 **Result值说明**
 
 
@@ -175,3 +222,4 @@ result 解密后json字符串
 | monthFee       | 月费(USD) |
 | rechargeFee   | 充值费率 |
 | title      | 卡片名称 |
+
