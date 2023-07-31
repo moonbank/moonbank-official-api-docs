@@ -106,7 +106,7 @@ Response of use register
     "message": "Successful!"
 }
 ```
-AES128 decrypt and Base64 decode,get the valid JSON string
+***AES128*** decrypt and ***Base64*** decode,get the valid JSON string
 
 ```javascript
 {
