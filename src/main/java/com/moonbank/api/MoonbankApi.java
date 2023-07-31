@@ -125,17 +125,39 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * apply bankcard
+     * @param uId
+     * @param bankcardId
+     * @param residenceAddress
+     */
+    public static void applyBankcard(String uId,Integer bankcardId,String residenceAddress) {
+        ApplyBankcardRequest request = new ApplyBankcardRequest();
+        request.setBankCardId(bankcardId);
+        request.setResidenceAddress(residenceAddress);
+        String result = postData(uId,MoonbankMethods.APPLY_BANKCARD, request);
+        System.out.println("applyBankcard response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("applyBankcard response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("applyBankcard encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
 
 //        bankcardTemplateList();
 
-        userRegister("1","18888888117","1888888881662@188.com");
-//        setUserProfession("hgqo2wfu73lla3ny");
+//        userRegister("1","38888888117","2888888881662@18.com");
+//        setUserProfession("hg8o6vv4ff5y7vm5");
+        applyBankcard("hgao4u6m26jvhael",9,"China");
     }
 
-    /**
+    /** util method
      * send post data
      * @param uId
      * @param method

@@ -14,6 +14,9 @@ public class MoonbankMethods {
     // set user profession
     public static String SET_USER_PROFESSION = "/user/setProfession";
 
+    // apply the bankcard
+    public static String APPLY_BANKCARD ="/bankcard/apply";
+
 
 
 }
