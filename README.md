@@ -138,6 +138,8 @@ Response of use register
     POST /user/register
     
     example: https://test.moonbank.me/api-web/user/register
+    
+    #body
 
     {
         "email": "188888888662@188.com",
@@ -179,6 +181,77 @@ result decrypted json string
 | ---------- |:-------:|---|
 | uid      | user unique ID, some requests set 'uId' request header with this value |String
 
+
+
+### 2. Set User profession
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /user/setProfession
+    
+    example: https://test.moonbank.me/api-web/user/setProfession
+    
+    #body
+    {
+        "annual_income": "100000",
+        "birthday": "2000-01-01",
+        "country": "CN",
+        "expiry_date": "2027-01-01",
+        "first_name": "ming",
+        "first_name_en": "ming",
+        "id_type": "passport",
+        "last_name": "li",
+        "last_name_en": "li",
+        "number": "123456",
+        "occupation": "boss",
+        "position": "management",
+        "frontImg":"data:image/jpg;base64,xxxxxxxx..........",
+        "backImg":"data:image/jpg;base64,xxxxxxxx.........."
+    }
+```
+***request fields***
+
+|field | description|required|type|format|
+| ---------- |:-------:|-------|---|---|
+| first_name     | user first name | YES |String||
+| last_name     | user last name |YES|String
+| first_name_en     | user english first name  | YES|String
+| last_name_en     | user english last name   | YES|String
+| birthday     | user birthday   | YES|String| YYYY-MM-DD
+| occupation     | user occupation   | YES|String
+| position     | user  position  | YES|String
+| annual_income     | user annual income    | YES|String
+| id_type     | user ID type  | YES|String| [ID TYPES](#ID TYPES)
+| country     | user ID country code  | YES|String|[ID COUNTRY](#ID COUNTRY)
+| number     | user ID number   | YES|String
+| expiry_date     | user ID expiry date   | YES|String| YYYY-MM-DD
+| frontImg     | user ID front image  | YES|String|
+| backImg     | user ID back image   | YES|String
+
+**HTTP Response**
+  Common response
+
+# FIELDS ENUM DESCRIPTION
+
+### ID TYPES
+|type | description|
+| ---------- |:-------:|
+| passport| User Passport|
+|national-id|User ID card|
+
+### ID COUNTRY
+|code | country|passport support| id card support|
+| ---------- |:-------:|---|---|
+| CN| China| YES|YES|
+|HK|China Hong Kong|YES|YES|
+|KOR|Korea|YES|NO|
+|JP|Japan|YES|NO|
+|SG|Singapore|YES|NO|
+|UK|Britain|YES|NO|
+|US|America|YES|NO|
 
 
 [Monnbank]: https://www.moonbank.me

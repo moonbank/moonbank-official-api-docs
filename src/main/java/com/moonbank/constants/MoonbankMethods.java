@@ -20,4 +20,9 @@ public class MoonbankMethods {
     // recharge the bankcard
     public static String RECHARGE_BANKCARD ="/bankcard/recharge";
 
+    // set card atm pin
+    public static String SET_BANKCARD_PIN ="/bankcard/setPin";
+
+
+
 }

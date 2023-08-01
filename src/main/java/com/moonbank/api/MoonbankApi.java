@@ -107,15 +107,14 @@ public class MoonbankApi {
         request.setLast_name_en("li");
         request.setBirthday("2000-01-01");
         request.setAnnual_income("100000");
-        request.setEmail("liming8666@qq.com");
         request.setOccupation("boss");
         request.setPosition("management");
         request.setId_type("passport");
         request.setCountry("CN");
         request.setNumber("123456");
         request.setExpiry_date("2027-01-01");
-        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport1.jpg","jpg"));
-        request.setBackImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport2.jpg","jpg"));
+//        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport1.jpg","jpg"));
+//        request.setBackImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport2.jpg","jpg"));
         String result = postData(uId,MoonbankMethods.SET_USER_PROFESSION, request);
         System.out.println("setUserProfession response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -163,16 +162,33 @@ public class MoonbankApi {
         }
     }
 
+    public static void setBankcardPin(String uId, Integer userBankcardId, String pin) {
+        SetBankcardPinRequest request = new SetBankcardPinRequest();
+        request.setUserBankcardId(userBankcardId);
+        request.setPin(pin);
+        String result = postData(uId,MoonbankMethods.SET_BANKCARD_PIN, request);
+        System.out.println("setBankcardPin response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("setBankcardPin response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("setBankcardPin encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
 
 //        bankcardTemplateList();
 
-        userRegister("1","18888888867","188888888662@188.com");
-//        setUserProfession("hgao4u6m26jvhael");
+//        userRegister("1","18888888867","188888888662@188.com");
+        setUserProfession("hgao4u6m26jvhael");
 //        applyBankcard("hgao4u6m26jvhael",9,"China");
-//        rechargeBankcard("hgao4u6m26jvhael",136,new BigDecimal(16));
+//        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
+
+//        setBankcardPin("hgao4u6m26jvhael",136,"123456");
     }
 
     /** util method
