@@ -330,7 +330,7 @@ result decrypted json string
 
 [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
 
-image data format like :
+image data format should be :
     "data:"+ image mine info +";base64," + image base64 encode data.
     
 
