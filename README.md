@@ -74,7 +74,7 @@ originString = '/user/register{"email":"188888888662@188.com","mobileNumber":"18
 base64String = 'L3VzZXIvcmVnaXN0ZXJ7ImVtYWlsIjoiMTg4ODg4ODg4NjYyQDE4OC5jb20iLCJtb2JpbGVOdW1iZXIiOiIxODg4ODg4ODg2NyIsIm1vYmlsZVByZWZpeCI6IjEifQ=='
 ```
 
-* base64String **AES128** encrypt
+* base64String **AES128** encrypt using ***appSecret*** as the key
 ```javascript
 aes128String = 'ed895c023683c55bf4b2538b09a21c78f95d533a2d7b92b2e94d6552081502708fc1960b7fa889d88e3672dcdb65710a0cf0359e85666f9c4a61335fe7a1503adbbdb30e3fa6b7124c230db25458adeab6639caf9e325f31901f408da08ded4a9e14cb2a8871a90613992a8ac094f527386b60c422e47c83caeb556534d6f1c39d83674dd211b50c2cdb5518d6dfe3763d86e46a45ff6b91239b93f918d59244998a48a446deec60acdd4fb6023e9d39'
 ```
