@@ -70,12 +70,12 @@ base64String = 'L3VzZXIvcmVnaXN0ZXJ7ImVtYWlsIjoiMTg4ODg4ODg4NjYyQDE4OC5jb20iLCJt
 
 * 使用secret作为密钥对base64String 进行**AES128** 加密
 ```javascript
-aes128String = '6EpHJVo/OhmIesRC5z5chgnPrbGf03G5DW3LQj61vkJ1gONBjJrErj3TI2fRJC7zOO80RtqvpxtnpYsPnBBnQkxZ7eDQdHw4mKBmnV1rCfcveZGzy9UyjMywbej0kz4y'
+aes128String = 'aa71f61b66b0436856be41b40ea099029bc25e43ae01d39f7332a8a56da3214d5b054c32c702142ade9a87f98cc3fca43a7625413671dff58fc6678faa760466b012d42a2b396c6218d04973b1fba60de82e593d22ddcf9f54f7fccb2cef876fe2e96e2276f672b44ebf6207ca823b0a0229ad71fa98c286f14adede9283d160d6ec88adf38227242f491052e1bd3edc'
 ```
 
 * 对aes加密后字符串进行**MD5**加密得到32位摘要字符串
 ```javascript
-signature = '44712f58a9455526e37567a4f9c67137'
+signature = 'f61ff896372b9e5836cb67a069dd810a'
 ```
 
 * 将appId 与 加密后得到的签名字符串，分别放入请求的header中
