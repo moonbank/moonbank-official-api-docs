@@ -295,11 +295,11 @@ result decrypted json string
 |ccy| card currency |
 |description1| card description1 |
 |description2| card description2|
-|id| bankcard ID, parameter of [Apply card api](#2-apply-bankcard)  |
+|id| ***bankcard ID, parameter of [Apply card api](#2-apply-bankcard)***  |
 |enable| is allowed to apply |
 |img| card demo image |
 |monthFee| Month fee of card(USD); Automatic deduction on the 7th of each month |
-|rechargeFee| recharge rates, like 0.01 |
+|rechargeFee| recharge fee rate, like 0.01 |
 |sortParam| sort parameter |
 |title| Card name |
 
