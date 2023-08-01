@@ -257,7 +257,8 @@ result decrypted json string
 # IMAGE DATA
 
 image data format like :
-    "data:"+ image mine info +";base64," + image base64 data. [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
+    "data:"+ image mine info +";base64," + image base64 encode data.
+    [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
 
 
 [Monnbank]: https://www.moonbank.me
