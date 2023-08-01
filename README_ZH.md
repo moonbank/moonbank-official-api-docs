@@ -8,7 +8,17 @@
 
 # API接口加密验证
 
-## 生成 appId 和 appSecret
+## 获取 appId 和 appSecret
+
+请联系商务开通，获取密钥信息。
+
+测试秘钥信息：
+
+* appId='app_447770'
+
+* appSecret='b635dd5c87f7bf73387929203321b1e1'
+
+
 
 ## 发起请求
 

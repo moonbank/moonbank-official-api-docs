@@ -9,6 +9,7 @@ import com.moonbank.models.*;
 import com.moonbank.utils.Base64ImgUtil;
 import com.moonbank.utils.MoonbankEncryptUtil;
 
+import java.math.BigDecimal;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.nio.charset.StandardCharsets;
@@ -25,7 +26,7 @@ public class MoonbankApi {
     private static final int NOTIFY_CONNECT_TIMEOUT = 1000;
 
     // if use proxy ,set this value true
-    private static boolean useProxy = false;
+    private static boolean useProxy = true;
 
     // proxy ip
     private static String proxyAddress = "127.0.0.1";
@@ -37,7 +38,7 @@ public class MoonbankApi {
     private static final String APP_ID = "app_447770";
 
     // SECRET
-    private static String APP_SECRET = "123456";
+    private static String APP_SECRET = "b635dd5c87f7bf73387929203321b1e1";
 
     /**
      * get system clock(system status)
@@ -146,15 +147,31 @@ public class MoonbankApi {
         }
     }
 
+    public static void rechargeBankcard(String uId, Integer userBankcardId, BigDecimal amount) {
+        RechargeBankcardRequest request = new RechargeBankcardRequest();
+        request.setUserBankcardId(userBankcardId);
+        request.setAmount(amount);
+        String result = postData(uId,MoonbankMethods.RECHARGE_BANKCARD, request);
+        System.out.println("rechargeBankcard response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("rechargeBankcard response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("rechargeBankcard encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
 
 //        bankcardTemplateList();
 
-//        userRegister("1","38888888117","2888888881662@18.com");
+        userRegister("1","18888888867","188888888662@188.com");
 //        setUserProfession("hg8o6vv4ff5y7vm5");
-        applyBankcard("hgao4u6m26jvhael",9,"China");
+//        applyBankcard("hgao4u6m26jvhael",2,"China");
+//        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(15));
     }
 
     /** util method
@@ -175,6 +192,7 @@ public class MoonbankApi {
         String sendContent = method + jsonDataString;
         System.out.println("originString="+sendContent);
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
+        System.out.println("sign="+signature);
         HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appId", APP_ID).header("sign", signature);
 
         if (!Strings.isNullOrEmpty(uId)) {

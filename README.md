@@ -10,6 +10,16 @@ This document provides an introduction to the use of related APIs such as accoun
 
 # Encrypted Verification of API
 
+## Get an API Key
+
+Before signing any request, you must get the API from sales.
+
+Demo appId and appSecret:
+
+* appId='app_447770'
+
+* appSecret='b635dd5c87f7bf73387929203321b1e1'
+
 ## Initiate a Request
 
 All REST requests must use ***POST*** method ,include the following headers, and the request body is valid JSON.
@@ -66,12 +76,12 @@ base64String = 'L3VzZXIvcmVnaXN0ZXJ7ImVtYWlsIjoiMTg4ODg4ODg4NjYyQDE4OC5jb20iLCJt
 
 * base64String **AES128** encrypt
 ```javascript
-aes128String = '6EpHJVo/OhmIesRC5z5chsJFd7HW5jKsoqg1WbV1iflLTqmsyuhXKuvQKdNqN0MKw1wwiWHbbp0cRWltjfXzMZ4Qf0lycz/lEb/OMf/v48S1R7xgwnHkS7qXzFuDY6PA8v9571Y8BXiaoBhUaIbsnn58fbBx8YhPqVs2ioibEkTLU7lmuwCFIuM3N/RMY7Tn'
+aes128String = 'ed895c023683c55bf4b2538b09a21c78f95d533a2d7b92b2e94d6552081502708fc1960b7fa889d88e3672dcdb65710a0cf0359e85666f9c4a61335fe7a1503adbbdb30e3fa6b7124c230db25458adeab6639caf9e325f31901f408da08ded4a9e14cb2a8871a90613992a8ac094f527386b60c422e47c83caeb556534d6f1c39d83674dd211b50c2cdb5518d6dfe3763d86e46a45ff6b91239b93f918d59244998a48a446deec60acdd4fb6023e9d39'
 ```
 
 * aes128String **MD5(32bit)** encrypt
 ```javascript
-signature = 'cc4991ec87ccb8f3118a1987b642bd3b'
+signature = '4b825688794fb0dec43935e6408c90f7'
 ```
 
 * put appId and the signature into the request header
@@ -94,7 +104,7 @@ All response is valid JSON as the follow structure
 ```
 The result field is Base64 encoded and AES128 encrypted with the appSecret, need decrypt and decode to get the JSON response data.
 
-**For example: Parse the following response** (the AppSecret=***123456***)
+**For example: Parse the following response** (the AppSecret=***b635dd5c87f7bf73387929203321b1e1***)
 
 Response of use register
 ```javascript

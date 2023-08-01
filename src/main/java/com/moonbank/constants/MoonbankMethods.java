@@ -17,6 +17,7 @@ public class MoonbankMethods {
     // apply the bankcard
     public static String APPLY_BANKCARD ="/bankcard/apply";
 
-
+    // recharge the bankcard
+    public static String RECHARGE_BANKCARD ="/bankcard/recharge";
 
 }
