@@ -44,6 +44,7 @@ public class MoonbankApi {
      * get system clock(system status)
      */
     public static void getSystemClock() {
+
         SystemClockRequest request = new SystemClockRequest();
         String result = postData(null,MoonbankMethods.SYS_CLOCK, request);
         System.out.println("getSystemClock response String:  " + result);
@@ -169,9 +170,9 @@ public class MoonbankApi {
 //        bankcardTemplateList();
 
         userRegister("1","18888888867","188888888662@188.com");
-//        setUserProfession("hg8o6vv4ff5y7vm5");
-//        applyBankcard("hgao4u6m26jvhael",2,"China");
-//        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(15));
+//        setUserProfession("hgao4u6m26jvhael");
+//        applyBankcard("hgao4u6m26jvhael",9,"China");
+//        rechargeBankcard("hgao4u6m26jvhael",136,new BigDecimal(16));
     }
 
     /** util method
@@ -189,7 +190,7 @@ public class MoonbankApi {
         System.out.println("post path：" + method);
         System.out.println("body：" + jsonDataString);
 
-        String sendContent = method + jsonDataString;
+        String sendContent = method+jsonDataString;
         System.out.println("originString="+sendContent);
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
         System.out.println("sign="+signature);

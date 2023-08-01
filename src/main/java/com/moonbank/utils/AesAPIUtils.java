@@ -10,7 +10,8 @@ public class AesAPIUtils {
 
     public static String encode(String data, String apiKey) {
         SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, HexUtil.decodeHex(apiKey));
-        return aes.encryptHex(Base64.encode(data),CharsetUtil.CHARSET_UTF_8);
+        data = Base64.encode(data);
+        return aes.encryptHex(data,CharsetUtil.CHARSET_UTF_8);
     }
 
     public static String decode(String encodeData, String apiKey) {
@@ -20,9 +21,8 @@ public class AesAPIUtils {
 
     public static void main(String[] arg) {
 
-        String aes = encode("123","b635dd5c87f7bf73387929203321b1e1");
+        String aes = encode("123456","b635dd5c87f7bf73387929203321b1e1");
         System.out.println(aes);
-
         System.out.println(decode(aes,"b635dd5c87f7bf73387929203321b1e1"));
     }
 }
