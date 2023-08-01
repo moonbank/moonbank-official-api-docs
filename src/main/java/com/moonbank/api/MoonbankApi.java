@@ -181,10 +181,10 @@ public class MoonbankApi {
     public static void main(String[] args) {
 //        getSystemClock();
 
-//        bankcardTemplateList();
+        bankcardTemplateList();
 
 //        userRegister("1","18888888867","188888888662@188.com");
-        setUserProfession("hgao4u6m26jvhael");
+//        setUserProfession("hgao4u6m26jvhael");
 //        applyBankcard("hgao4u6m26jvhael",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 

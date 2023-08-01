@@ -234,6 +234,78 @@ result decrypted json string
 **HTTP Response**
   Common response
 
+## Bankcard related APIs
+### 1. Bankcard Information List
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/template/list
+    
+    example: https://test.moonbank.me/api-web/bankcard/template/list
+    
+    #body
+    {
+        
+    }
+```
+***request fields***
+
+    NONE
+
+***No request parameters ,but should post empty json data "{}" to server***
+
+**HTTP Response**
+
+```javascript
+    # Response result decode 
+    [{
+    "applyDiscount": 1,
+    "applyFee": 300.000000000000000000,
+    "bankCardNature": "PHYSICAL",
+    "bankCardSource": "SP",
+    "bankCardType": "MASTER",
+    "categoryId": 1,
+    "ccy": "USD",
+    "description1": "闪电支付，无缝衔接",
+    "description2": "让你的NFT消费流通起来",
+    "enable": true,
+    "hot": false,
+    "id": 9,
+    "img": "https://test.moonbank.me/static-res/bankcard/1688961772590.png",
+    "monthFee": 0.00,
+    "rechargeFee": 0.010000000000000000,
+    "recommend": true,
+    "sortParam": 20,
+    "title": "Moonbank  优月卡"
+    },
+    ...
+    ]
+```
+***response fields***
+
+|field | description|
+| ---------- |:-------:|
+|applyFee| apply fee(USD) |
+|applyDiscount| discount of apply, real cost of applying is applyDiscount*applyFee |
+|bankCardNature| PHYSICAL or VIRTUAL |
+|bankCardType| MASTER or VISA |
+|ccy| card currency |
+|description1| card description1 |
+|description2| card description2|
+|id| bankcard ID, parameter of [Apply card api](#2-apply-bankcard)  |
+|enable| is allowed to apply |
+|img| card demo image |
+|monthFee| Month fee of card(USD); Automatic deduction on the 7th of each month |
+|rechargeFee| recharge rates, like 0.01 |
+|sortParam| sort parameter |
+|title| Card name |
+
+### 2. Apply Bankcard
+
+
 # FIELDS ENUM DESCRIPTION
 
 ### ID TYPES
@@ -256,9 +328,11 @@ result decrypted json string
 
 # IMAGE DATA
 
+[java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
+
 image data format like :
     "data:"+ image mine info +";base64," + image base64 encode data.
-    [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
+    
 
 
 [Monnbank]: https://www.moonbank.me
