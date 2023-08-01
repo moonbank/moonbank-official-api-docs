@@ -224,8 +224,8 @@ result decrypted json string
 | occupation     | user occupation   | YES|String
 | position     | user  position  | YES|String
 | annual_income     | user annual income    | YES|String
-| id_type     | user ID type  | YES|String| [ID TYPES](#id-types)
-| country     | user ID country code  | YES|String|[ID COUNTRY](#id-countries)
+| id_type     | user ID type  | YES|String| must be one of these [id types](#id-types)
+| country     | user ID country code  | YES|String|must be one of these [id countries](#id-countries)
 | number     | user ID number   | YES|String
 | expiry_date     | user ID expiry date   | YES|String| YYYY-MM-DD
 | frontImg     | user ID front image  | YES|String|
