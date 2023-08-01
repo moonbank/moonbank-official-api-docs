@@ -223,13 +223,13 @@ result decrypted json string
 | birthday     | user birthday   | YES|String| YYYY-MM-DD
 | occupation     | user occupation   | YES|String
 | position     | user  position  | YES|String
-| annual_income     | user annual income    | YES|String
-| id_type     | user ID type  | YES|String| must be one of these [id types](#id-types)
-| country     | user ID country code  | YES|String|must be one of these [id countries](#id-countries)
+| annual_income     | user annual income    | YES|String| Annual user income in HKD|
+| id_type     | user ID type  | YES|String| must be one of these [id types](#id-types)|
+| country     | user ID country code  | YES|String| code must be one of these [id countries](#id-countries)|
 | number     | user ID number   | YES|String
 | expiry_date     | user ID expiry date   | YES|String| YYYY-MM-DD
-| frontImg     | user ID front image  | YES|String|
-| backImg     | user ID back image   | YES|String
+| frontImg     | user ID front image  | YES|String| [image format](#image-data)|
+| backImg     | user ID back image   | YES|String|[image format](#image-data)|
 
 **HTTP Response**
   Common response
@@ -252,6 +252,12 @@ result decrypted json string
 |SG|Singapore|YES|NO|
 |UK|Britain|YES|NO|
 |US|America|YES|NO|
+
+
+# IMAGE DATA
+
+image data format like :
+    "data:"+ image mine info +";base64," + image base64 data. [java](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) [php](./PHP-signature-Demo/image-base64-demo.php)
 
 
 [Monnbank]: https://www.moonbank.me
