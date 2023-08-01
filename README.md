@@ -225,7 +225,7 @@ result decrypted json string
 | position     | user  position  | YES|String
 | annual_income     | user annual income    | YES|String
 | id_type     | user ID type  | YES|String| [ID TYPES](#id-types)
-| country     | user ID country code  | YES|String|[ID COUNTRY](#id-country)
+| country     | user ID country code  | YES|String|[ID COUNTRY](#id-countries)
 | number     | user ID number   | YES|String
 | expiry_date     | user ID expiry date   | YES|String| YYYY-MM-DD
 | frontImg     | user ID front image  | YES|String|
@@ -242,7 +242,7 @@ result decrypted json string
 | passport| User Passport|
 |national-id|User ID card|
 
-### ID COUNTRY
+### ID COUNTRIES
 |code | country|passport support| id card support|
 | ---------- |:-------:|---|---|
 | CN| China| YES|YES|
