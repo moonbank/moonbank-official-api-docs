@@ -1,5 +1,6 @@
 <?php
 
+// PHP online runtime: https://www.nhooo.com/tool/php/
 class Signature
 {
     public static function main()
