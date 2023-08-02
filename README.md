@@ -361,15 +361,15 @@ result decrypted json string
 |cardNo| card Number, Only after the card is approved can the complete card number be obtained |
 |status| [card status enum](#card-status) |
 
-# FIELDS ENUM DESCRIPTION
+# Fields ENUM Description
 
-### ID TYPES
+### ID types
 |type | description|
 | ---------- |:-------:|
 | passport| User Passport|
 |national-id|User ID card|
 
-### ID COUNTRIES
+### ID countries
 |code | country|passport support| id card support|
 | ---------- |:-------:|---|---|
 | CN| China| YES|YES|
@@ -380,7 +380,7 @@ result decrypted json string
 |UK|Britain|YES|NO|
 |US|America|YES|NO|
 
-### CARD STATUS
+### Card status
 |status | description|
 | ---------- |:-------:|
 |AUDITING|Card approval in progress|
@@ -393,7 +393,7 @@ result decrypted json string
 |CLOSE|Card been closed|
 |EXCHANGE_PROCESSING|Card replacement processing in progress|
 
-# IMAGE DATA
+# Image data
 
 [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)
 

@@ -134,7 +134,7 @@ public class MoonbankApi {
      */
     public static void applyBankcard(String uId,Integer bankcardId,String residenceAddress) {
         ApplyBankcardRequest request = new ApplyBankcardRequest();
-        request.setBankCardId(bankcardId);
+        request.setBankcardId(bankcardId);
         request.setResidenceAddress(residenceAddress);
         String result = postData(uId,MoonbankMethods.APPLY_BANKCARD, request);
         System.out.println("applyBankcard response String:  " + result);
@@ -179,13 +179,13 @@ public class MoonbankApi {
 
 
     public static void main(String[] args) {
-//        getSystemClock();
+        getSystemClock();
 
 //        bankcardTemplateList();
 
 //        userRegister("1","13333333333","13333333333@133.com");
 //        setUserProfession("hgdo7w3bu3263jdc");
-        applyBankcard("hgdo7w3bu3263jdc",9,"China");
+//        applyBankcard("hgdo7w3bu3263jdc",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
