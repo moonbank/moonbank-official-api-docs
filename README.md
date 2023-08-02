@@ -264,7 +264,9 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 ***No request parameters ,but should post empty json data "{}" to server***
 
 **HTTP Response**
+
 result decrypted json string
+
 ```javascript
     # Response result decode 
     [{
@@ -341,7 +343,9 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 
 **HTTP Response**
+
 result decrypted json string
+
 ```javascript
     {
         "cardNo": "424242 **** **** ****",
