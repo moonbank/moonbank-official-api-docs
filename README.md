@@ -473,8 +473,8 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 | userBankcardId     | user bankcard ID from card apply response   | YES |Number|
 | pageSize     | Paging query, one page size |NO|Number|10|
 | pageNum     | Paging query, which page |NO |Number|1|
-| fromTimestamp     | from time(The time range contains values equal to from time.)  |NO |Number|NONE
-| endTimestamp     | end time(The time range does not include an occur time that is equal to or greater than.)  |NO |Number|NONE
+| fromTimestamp     | from time(The time range contains values equal to from time.)  |NO |[milliseconds UNIX Time](https://en.wikipedia.org/wiki/Unix_time)|NONE
+| endTimestamp     | end time(The time range does not include an occur time that is equal to or greater than.)  |NO |[milliseconds UNIX Time](https://en.wikipedia.org/wiki/Unix_time)|NONE
 
 
 **HTTP Response**
@@ -502,7 +502,7 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |recordNo| user bankcard unique ID, parameter of API when doing any card operating |
-|occurTime| card Number, Only after the card is approved can the complete card number be obtained |
+|occurTime| card Number, Only after the card is approved can the complete card number be obtained. [milliseconds UNIX Time](https://en.wikipedia.org/wiki/Unix_time) |
 |localCurrencyAmt| Local currency trans Amount |
 |localCurrency| Local currency type |
 |transCurrencyAmt| Transaction currency trans Amount|
