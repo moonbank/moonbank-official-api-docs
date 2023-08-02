@@ -471,7 +471,7 @@ Common response
 |AUDITING|Card approval in progress|
 |AUDIT_PASS|Card approval passed|
 |AUDIT_NOT_PASS|Card approval not passed|
-|TBA|Card to be activated (automatic activation for first card recharge)|
+|TBA|Card to be activated (automatic activation for first time card recharge)|
 |ACTIVE_PROCESSING|Card activation processing is in progress (some cards cannot synchronously return results and need to wait for notification or actively query results)|
 |ACTIVE|Card active|
 |CLOSE_PROCESSING|Card closing processing is in progress(some cards cannot synchronously return results and need to wait for notification or actively query results)|
