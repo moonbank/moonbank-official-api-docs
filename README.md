@@ -398,9 +398,9 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 **HTTP Response**
 
 Common response
-
-* NOTE  Physical card recharge will directly return the recharge result. 
-* NOTE  The virtual card has some cards with bin cards and cannot directly return recharge results(Response code is 99997). You need to notify the recharge results in webhook.
+NOTE
+* Physical card recharge will directly return the recharge result. 
+* The virtual card has some cards with bin cards and cannot directly return recharge results(Response code is 99997). You need to notify the recharge results in webhook.
 
 ### 4. Set Bankcard ATM Pin
 
