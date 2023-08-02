@@ -124,6 +124,9 @@ Response of use register
 }
 ```
 
+Please refer to the detailed meaning of the [Response code](#response-codes).
+
+
 # Moonbank APIs
 
 ## User related APIs
@@ -361,7 +364,88 @@ result decrypted json string
 |cardNo| card Number, Only after the card is approved can the complete card number be obtained |
 |status| [card status enum](#card-status) |
 
+### 3. Recharge Bankcard
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/recharge
+
+    example: https://test.moonbank.me/api-web/bankcard/recharge
+    
+    #body
+    {
+    "amount": 16,
+    "userBankcardId": 135
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|
+| ---------- |:-------:|-------|---|
+| userBankcardId     | user bankcard ID from card apply response  | YES |Integer|
+| amount     | Recharge amount |YES |String
+
+
+**HTTP Response**
+
+Common response
+
+*NOTE  Physical card recharge will directly return the recharge result. The virtual card has some cards with bin cards and cannot directly return recharge results(Response code is 99997). You need to notify the recharge results in webhook.
+
+### 4. Recharge ATM Pin
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/setPin
+
+    example: https://test.moonbank.me/api-web/bankcard/setPin
+    
+    #body
+    {
+    "pin": "123456",
+    "userBankcardId": 136
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|format|
+| ---------- |:-------:|-------|---|---|
+| userBankcardId     | user bankcard ID from card apply response  | YES |Integer||
+| pin     | user ATM password |YES |String|6-digit password|
+
+
+**HTTP Response**
+
+Common response
+
 # Fields ENUM Description
+
+### Response codes
+|code | description|
+| ---------- |:-------:|
+| 1| SUCCESS|
+|2|Parameters illegal|
+|200|Common business error, detail in the message|
+|212|Account balance not enough |
+|99997|The business result is unknown, and we need to wait for the result notification or actively query the result|
 
 ### ID types
 |type | description|

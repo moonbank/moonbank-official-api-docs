@@ -179,16 +179,16 @@ public class MoonbankApi {
 
 
     public static void main(String[] args) {
-        getSystemClock();
+//        getSystemClock();
 
 //        bankcardTemplateList();
 
-//        userRegister("1","13333333333","13333333333@133.com");
+//        userRegister("1","18888888867","188888888662@188.com");
 //        setUserProfession("hgdo7w3bu3263jdc");
 //        applyBankcard("hgdo7w3bu3263jdc",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
-//        setBankcardPin("hgao4u6m26jvhael",136,"123456");
+        setBankcardPin("hgao4u6m26jvhael",136,"123456");
     }
 
     /** util method
