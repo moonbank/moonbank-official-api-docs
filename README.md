@@ -264,7 +264,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 ***No request parameters ,but should post empty json data "{}" to server***
 
 **HTTP Response**
-
+result decrypted json string
 ```javascript
     # Response result decode 
     [{
@@ -290,7 +290,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
     ...
     ]
 ```
-***response fields***
+**Result fields**
 
 |field | description|
 | ---------- |:-------:|
@@ -341,6 +341,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 
 **HTTP Response**
+result decrypted json string
 ```javascript
     {
         "cardNo": "424242 **** **** ****",
@@ -348,7 +349,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
         "status": "AUDITING"
     }
 ```
-***response fields***
+**Result fields**
 
 |field | description|
 | ---------- |:-------:|
