@@ -439,6 +439,48 @@ Common response
 ### 5. Query Bankcard Information
 
 ### 6. Query Bankcard Balance
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/balance
+
+    example: https://test.moonbank.me/api-web/bankcard/balance
+    
+    #body
+    {
+    "userBankcardId": 136
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|default value|
+| ---------- |:-------:|-------|---|---|
+| userBankcardId     | user bankcard ID from card apply response   | YES |Number|
+
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    {
+    "balance": 456.34
+    }
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|balance| Bankcard Balance Amount (USD) |
+
 
 ### 7. Query Bankcard Transactions
 

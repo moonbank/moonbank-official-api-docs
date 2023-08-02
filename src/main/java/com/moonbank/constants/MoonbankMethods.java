@@ -26,6 +26,9 @@ public class MoonbankMethods {
     // query bankcard transactions
     public static String QUERY_BANKCARD_TRANSACTIONS = "/bankcard/transactions";
 
+    // query bankcard balance
+    public static String QUERY_BANKCARD_BALANCE = "/bankcard/balance";
+
 
 
 }

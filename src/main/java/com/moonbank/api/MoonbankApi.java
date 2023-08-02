@@ -212,6 +212,24 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * query bankcard transactions
+     * @param uId
+     * @param userBankcardId
+     */
+    public static void queryBankcardBalance(String uId, Integer userBankcardId) {
+        QueryBankcardBalanceRequest request = new QueryBankcardBalanceRequest();
+        request.setUserBankcardId(userBankcardId);
+        String result = postData(uId,MoonbankMethods.QUERY_BANKCARD_BALANCE, request);
+        System.out.println("queryBankcardBalance response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("queryBankcardBalance response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("queryBankcardBalance encode result===>" + descStr);
+        }
+    }
 
     public static void main(String[] args) {
 //        getSystemClock();
@@ -224,7 +242,8 @@ public class MoonbankApi {
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
-        queryBankcardTransactions("hgao4u6m26jvhael",136);
+//        queryBankcardTransactions("hgao4u6m26jvhael",136);
+        queryBankcardBalance("hgao4u6m26jvhael",136);
     }
 
     /** util method
