@@ -147,6 +147,12 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * recharge bankcard
+     * @param uId
+     * @param userBankcardId
+     * @param amount
+     */
     public static void rechargeBankcard(String uId, Integer userBankcardId, BigDecimal amount) {
         RechargeBankcardRequest request = new RechargeBankcardRequest();
         request.setUserBankcardId(userBankcardId);
@@ -162,6 +168,12 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * set bankcard pin
+     * @param uId
+     * @param userBankcardId
+     * @param pin
+     */
     public static void setBankcardPin(String uId, Integer userBankcardId, String pin) {
         SetBankcardPinRequest request = new SetBankcardPinRequest();
         request.setUserBankcardId(userBankcardId);
@@ -177,6 +189,29 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * query bankcard transactions
+     * @param uId
+     * @param userBankcardId
+     */
+    public static void queryBankcardTransactions(String uId, Integer userBankcardId) {
+        QueryBankcardTransactionsRequest request = new QueryBankcardTransactionsRequest();
+        request.setUserBankcardId(userBankcardId);
+//        request.setFromTimestamp(1690878577000L);
+//        request.setEndTimestamp(1690878578000L);
+        request.setPageSize(10);
+        request.setPageNum(1);
+        String result = postData(uId,MoonbankMethods.QUERY_BANKCARD_TRANSACTIONS, request);
+        System.out.println("queryBankcardTransactions response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("queryBankcardTransactions response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("queryBankcardTransactions encode result===>" + descStr);
+        }
+    }
+
 
     public static void main(String[] args) {
 //        getSystemClock();
@@ -188,7 +223,8 @@ public class MoonbankApi {
 //        applyBankcard("hgdo7w3bu3263jdc",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
-        setBankcardPin("hgao4u6m26jvhael",136,"123456");
+//        setBankcardPin("hgao4u6m26jvhael",136,"123456");
+        queryBankcardTransactions("hgao4u6m26jvhael",136);
     }
 
     /** util method
@@ -202,7 +238,8 @@ public class MoonbankApi {
     private static String postData(String uId, String method, MbApiBaseRequest request) {
 
         String jsonDataString = JSON.toJSONString(request);
-
+        String url = GATEWAY + method;
+        System.out.println("url="+url);
         System.out.println("post path：" + method);
         System.out.println("body：" + jsonDataString);
 
@@ -210,7 +247,7 @@ public class MoonbankApi {
         System.out.println("originString="+sendContent);
         String signature = MoonbankEncryptUtil.encode(APP_SECRET, sendContent);
         System.out.println("sign="+signature);
-        HttpRequest httpRequest = HttpRequest.post(GATEWAY + method).header("appId", APP_ID).header("sign", signature);
+        HttpRequest httpRequest = HttpRequest.post(url).header("appId", APP_ID).header("sign", signature);
 
         if (!Strings.isNullOrEmpty(uId)) {
             httpRequest.header("uId", uId);

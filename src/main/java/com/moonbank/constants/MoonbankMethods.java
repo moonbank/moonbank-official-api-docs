@@ -23,6 +23,9 @@ public class MoonbankMethods {
     // set card atm pin
     public static String SET_BANKCARD_PIN ="/bankcard/setPin";
 
+    // query bankcard transactions
+    public static String QUERY_BANKCARD_TRANSACTIONS = "/bankcard/transactions";
+
 
 
 }

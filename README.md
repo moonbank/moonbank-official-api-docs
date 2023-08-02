@@ -341,7 +341,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 |field | description|required|type|
 | ---------- |:-------:|-------|---|
-| bankcardId     | bankcard ID from card information list response  | YES |Integer|
+| bankcardId     | bankcard ID from card information list response  | YES |Number|
 | residenceAddress     | The user's residential address must be detailed to the building number or house number. |NO, Only PHYSICAL card need this field |String
 
 
@@ -391,7 +391,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 |field | description|required|type|
 | ---------- |:-------:|-------|---|
-| userBankcardId     | user bankcard ID from card apply response  | YES |Integer|
+| userBankcardId     | user bankcard ID from card apply response  | YES |Number|
 | amount     | Recharge amount |YES |String
 
 
@@ -429,13 +429,89 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 |field | description|required|type|format|
 | ---------- |:-------:|-------|---|---|
-| userBankcardId     | user bankcard ID from card apply response  | YES |Integer||
+| userBankcardId     | user bankcard ID from card apply response  | YES |Number||
 | pin     | user ATM password |YES |String|6-digit password|
 
 
 **HTTP Response**
 
 Common response
+### 5. Query Bankcard Information
+
+### 6. Query Bankcard Balance
+
+### 7. Query Bankcard Transactions
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/transactions
+
+    example: https://test.moonbank.me/api-web/bankcard/transactions
+    
+    #body
+    {
+        "endTimestamp": 1690878578000,
+        "fromTimestamp": 1690878577000,
+        "pageNum": 1,
+        "pageSize": 10,
+        "userBankcardId": 135
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|default value|
+| ---------- |:-------:|-------|---|---|
+| userBankcardId     | user bankcard ID from card apply response   | YES |Number|
+| pageSize     | Paging query, one page size |NO|Number|10|
+| pageNum     | Paging query, which page |NO |Number|1|
+| fromTimestamp     | from time(The time range contains values equal to from time.)  |NO |Number|NONE
+| endTimestamp     | end time(The time range does not include an occur time that is equal to or greater than.)  |NO |Number|NONE
+
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    [{
+        "id": 191,
+        "localCurrency": "HKD",
+        "localCurrencyAmt": "-24.27",
+        "merchantName": "MEITUAN FOOD           BEIJING       CHN",
+        "occurTime": 1690940850000,
+        "recordNo": "57724528-78b6-4ae2-919f-1efff348f460",
+        "transCurrency": "CNY",
+        "transCurrencyAmt": "-21.90",
+        "transStatus": "Pending",
+        "transType": "Expenditure"
+    },
+        ...
+    ]
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|recordNo| user bankcard unique ID, parameter of API when doing any card operating |
+|occurTime| card Number, Only after the card is approved can the complete card number be obtained |
+|localCurrencyAmt| Local currency trans Amount |
+|localCurrency| Local currency type |
+|transCurrencyAmt| Transaction currency trans Amount|
+|transCurrency| Transaction currency type |
+|transStatus| Transaction status |
+|transType| Transaction type |
+|authType| Authorisation type (Purchase or ATM) |
+|merchantName| Merchant name |
+
 
 # Fields ENUM Description
 
