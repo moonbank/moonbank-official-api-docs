@@ -113,8 +113,8 @@ public class MoonbankApi {
         request.setCountry("CN");
         request.setNumber("123456");
         request.setExpiry_date("2027-01-01");
-//        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport1.jpg","jpg"));
-//        request.setBackImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport2.jpg","jpg"));
+        request.setFrontImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport1.jpg","jpg"));
+        request.setBackImg(Base64ImgUtil.GetImageStr("/Users/donnie/moonbank-official-api-docs/src/main/resources/passport2.jpg","jpg"));
         String result = postData(uId,MoonbankMethods.SET_USER_PROFESSION, request);
         System.out.println("setUserProfession response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -181,11 +181,11 @@ public class MoonbankApi {
     public static void main(String[] args) {
 //        getSystemClock();
 
-        bankcardTemplateList();
+//        bankcardTemplateList();
 
-//        userRegister("1","18888888867","188888888662@188.com");
-//        setUserProfession("hgao4u6m26jvhael");
-//        applyBankcard("hgao4u6m26jvhael",9,"China");
+//        userRegister("1","13333333333","13333333333@133.com");
+//        setUserProfession("hgdo7w3bu3263jdc");
+        applyBankcard("hgdo7w3bu3263jdc",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");

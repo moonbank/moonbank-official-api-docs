@@ -191,7 +191,7 @@ result decrypted json string
     # Request
     
     POST /user/setProfession
-    
+
     example: https://test.moonbank.me/api-web/user/setProfession
     
     #body
@@ -212,6 +212,12 @@ result decrypted json string
         "backImg":"data:image/jpg;base64,xxxxxxxx.........."
     }
 ```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
 ***request fields***
 
 |field | description|required|type|format|
@@ -305,6 +311,50 @@ result decrypted json string
 
 ### 2. Apply Bankcard
 
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/apply
+
+    example: https://test.moonbank.me/api-web/bankcard/apply
+    
+    #body
+    {
+        "bankcardId": 9,
+        "residenceAddress": ""
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|
+| ---------- |:-------:|-------|---|
+| bankcardId     | bankcard ID from card information list response  | YES |Integer|
+| residenceAddress     | The user's residential address must be detailed to the building number or house number. |NO, Only PHYSICAL card need this field |String
+
+
+**HTTP Response**
+```javascript
+    {
+        "cardNo": "424242 **** **** ****",
+        "userBankcardId": 137,
+        "status": "AUDITING"
+    }
+```
+***response fields***
+
+|field | description|
+| ---------- |:-------:|
+|userBankcardId| user bankcard unique ID, parameter of API when doing any card operating |
+|cardNo| card Number, Only after the card is approved can the complete card number be obtained |
+|status| [card status enum](#card-status) |
 
 # FIELDS ENUM DESCRIPTION
 
@@ -325,6 +375,18 @@ result decrypted json string
 |UK|Britain|YES|NO|
 |US|America|YES|NO|
 
+### CARD STATUS
+|status | description|
+| ---------- |:-------:|
+|AUDITING|Card approval in progress|
+|AUDIT_PASS|Card approval passed|
+|AUDIT_NOT_PASS|Card approval not passed|
+|TBA|Card to be activated (automatic activation for first card recharge)|
+|ACTIVE_PROCESSING|Card activation processing is in progress (some cards cannot synchronously return results and need to wait for notification or actively query results)|
+|ACTIVE|Card active|
+|CLOSE_PROCESSING|Card closing processing is in progress(some cards cannot synchronously return results and need to wait for notification or actively query results)|
+|CLOSE|Card been closed|
+|EXCHANGE_PROCESSING|Card replacement processing in progress|
 
 # IMAGE DATA
 

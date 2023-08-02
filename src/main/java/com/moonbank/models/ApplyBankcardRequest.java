@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ApplyBankcardRequest extends MbApiBaseRequest{
-    private Integer bankCardId;
+    private Integer bankcardId;
     private String residenceAddress;
 }
