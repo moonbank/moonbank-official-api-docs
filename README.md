@@ -516,7 +516,6 @@ result decrypted json string
         "cardCvv": "195",
         "cardNo": "1111112826444128",
         "currency": "USD",
-        "customerId": 35875,
         "expiryDate": "202707",
         "monthFee": 0.00,
         "rechargeDiscount": 1,
@@ -552,8 +551,8 @@ result decrypted json string
 |rechargeFee| Bankcard Recharge fee rate. like 0.01 |
 |rechargeDiscount| Bankcard Recharge Fee discount. rechargeDiscount*rechargeFee= real Recharge fee rate |
 |userBankCardStatus| [Bankcard status](#card-status) |
-|hashHolderInfo| Some Virtual need card holder information,if this value is true, ***vccCardHolderVo*** field is detail holder information  |
-|vccCardHolderVo.firstName| Card Holder  Information |
+|hashHolderInfo| Some Virtual need card holder information,if this value is true, ***vccCardHolderVo*** is detail holder information  |
+|vccCardHolderVo| Card Holder Detail Information |
 |vccCardHolderVo.firstName| Card Holder firstName  |
 |vccCardHolderVo.middleName| Card Holder middleName  |
 |vccCardHolderVo.lastName| Card Holder lastName |
