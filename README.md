@@ -437,8 +437,6 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 Common response
 ### 5. Query Bankcard Information
-
-### 6. Query Bankcard Balance
 **HTTP Request**
 
 ```javascript
@@ -480,6 +478,95 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |balance| Bankcard Balance Amount (USD) |
+### 6. Query Bankcard Balance
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /bankcard/balance
+
+    example: https://test.moonbank.me/api-web/bankcard/balance
+    
+    #body
+    {
+    "userBankcardId": 136
+    }
+```
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+***request fields***
+
+|field | description|required|type|default value|
+| ---------- |:-------:|-------|---|---|
+| userBankcardId     | user bankcard ID from card apply response   | YES |Number|
+
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+   {
+        "bankCardId": 132,
+        "cardCvv": "195",
+        "cardNo": "1111112826444128",
+        "currency": "USD",
+        "customerId": 35875,
+        "expiryDate": "202707",
+        "monthFee": 0.00,
+        "rechargeDiscount": 1,
+        "rechargeFee": 0.01,
+        "userBankCardStatus": "ACTIVE",
+        "hashHolderInfo": true,
+        "vccCardHolderVo": {
+            "billingAddress": "3836  Harvest Lane",
+            "billingCity": " Los Angeles",
+            "billingState": "California",
+            "billingZipCode": "90014",
+            "birthDate": "1983-10-01",
+            "countryCode": "America",
+            "email": "123321@moonbank.me",
+            "firstName": "jiang",
+            "id": 4,
+            "lastName": "liu",
+            "middleName": "luo",
+            "mobile": "18900889980",
+            "mobilePrefix": "86"
+    }
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|cardCvv| Bankcard Cvv code, Only Virtual Card return this Field |
+|cardNo| Bankcard  Number |
+|currency| Bankcard currency |
+|expiryDate| Bankcard Expiry Date |
+|monthFee| Bankcard Month Fee (USD) |
+|rechargeFee| Bankcard Recharge fee rate. like 0.01 |
+|rechargeDiscount| Bankcard Recharge Fee discount. rechargeDiscount*rechargeFee= real Recharge fee rate |
+|userBankCardStatus| [Bankcard status](#card-status) |
+|hashHolderInfo| Some Virtual need card holder information,if this value is true, ***vccCardHolderVo*** field is detail holder information  |
+|vccCardHolderVo.firstName| Card Holder  Information |
+|vccCardHolderVo.firstName| Card Holder firstName  |
+|vccCardHolderVo.middleName| Card Holder middleName  |
+|vccCardHolderVo.lastName| Card Holder lastName |
+|vccCardHolderVo.mobilePrefix| Card Holder mobilePrefix |
+|vccCardHolderVo.mobile| Card Holder mobile |
+|vccCardHolderVo.email| Card Holder firstName |
+|vccCardHolderVo.countryCode| Card Holder  countryCode|
+|vccCardHolderVo.birthDate| Card Holder birthDate|
+|vccCardHolderVo.billingAddress| Card Holder billingAddress |
+|vccCardHolderVo.billingCity| Card Holder billingCity |
+|vccCardHolderVo.billingState| Card Holder billingState |
+|vccCardHolderVo.billingZipCode| Card Holder billingZipCode |
+
 
 
 ### 7. Query Bankcard Transactions
