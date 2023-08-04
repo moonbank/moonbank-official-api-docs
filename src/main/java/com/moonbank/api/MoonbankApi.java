@@ -106,9 +106,6 @@ public class MoonbankApi {
         request.setLast_name("li");
         request.setLast_name_en("li");
         request.setBirthday("2000-01-01");
-        request.setAnnual_income("100000");
-        request.setOccupation("boss");
-        request.setPosition("management");
         request.setId_type("passport");
         request.setCountry("CN");
         request.setNumber("123456");
@@ -256,14 +253,14 @@ public class MoonbankApi {
 //        bankcardTemplateList();
 
 //        userRegister("1","18888888867","188888888662@188.com");
-//        setUserProfession("hgdo7w3bu3263jdc");
+        setUserProfession("hgdo7w3bu3263jdc");
 //        applyBankcard("hgdo7w3bu3263jdc",9,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
 //        queryBankcardTransactions("hgao4u6m26jvhael",135);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
-        queryBankcardInfo("hgao4u6m26jvhael",132);
+//        queryBankcardInfo("hgao4u6m26jvhael",132);
     }
 
     /** util method

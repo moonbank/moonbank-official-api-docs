@@ -230,9 +230,9 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 | first_name_en     | user english first name  | YES|String
 | last_name_en     | user english last name   | YES|String
 | birthday     | user birthday   | YES|String| YYYY-MM-DD
-| occupation     | user occupation   | YES|String
-| position     | user  position  | YES|String
-| annual_income     | user annual income    | YES|String| Annual user income in HKD|
+| occupation     | user occupation   | NO|String
+| position     | user  position  | NO|String
+| annual_income     | user annual income    | NO|String| Annual user income in HKD|
 | id_type     | user ID type  | YES|String| must be one of these [id types](#id-types)|
 | country     | user ID country code  | YES|String| code must be one of these [id countries](#id-countries)|
 | number     | user ID number   | YES|String
