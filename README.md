@@ -436,7 +436,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 **HTTP Response**
 
 Common response
-### 5. Query Bankcard Information
+### 5. Query Bankcard Balance
 **HTTP Request**
 
 ```javascript
@@ -478,15 +478,15 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |balance| Bankcard Balance Amount (USD) |
-### 6. Query Bankcard Balance
+### 6. Query Bankcard Information
 **HTTP Request**
 
 ```javascript
     # Request
     
-    POST /bankcard/balance
+    POST /bankcard/cardInfo
 
-    example: https://test.moonbank.me/api-web/bankcard/balance
+    example: https://test.moonbank.me/api-web/bankcard/cardInfo
     
     #body
     {
@@ -518,7 +518,6 @@ result decrypted json string
         "currency": "USD",
         "expiryDate": "202707",
         "monthFee": 0.00,
-        "rechargeDiscount": 1,
         "rechargeFee": 0.01,
         "userBankCardStatus": "ACTIVE",
         "hashHolderInfo": true,
@@ -549,7 +548,6 @@ result decrypted json string
 |expiryDate| Bankcard Expiry Date |
 |monthFee| Bankcard Month Fee (USD) |
 |rechargeFee| Bankcard Recharge fee rate. like 0.01 |
-|rechargeDiscount| Bankcard Recharge Fee discount. rechargeDiscount*rechargeFee= real Recharge fee rate |
 |userBankCardStatus| [Bankcard status](#card-status) |
 |hashHolderInfo| Some Virtual need card holder information,if this value is true, ***vccCardHolderVo*** is detail holder information  |
 |vccCardHolderVo| Card Holder Detail Information |

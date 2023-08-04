@@ -253,14 +253,14 @@ public class MoonbankApi {
 //        bankcardTemplateList();
 
 //        userRegister("1","18888888867","188888888662@188.com");
-        setUserProfession("hgdo7w3bu3263jdc");
-//        applyBankcard("hgdo7w3bu3263jdc",9,"China");
+//        setUserProfession("hgdo7w3bu3263jdc");
+//        applyBankcard("hgdo7w3bu3263jdc",1,"China");
 //        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
 //        queryBankcardTransactions("hgao4u6m26jvhael",135);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
-//        queryBankcardInfo("hgao4u6m26jvhael",132);
+        queryBankcardInfo("hgao4u6m26jvhael",140);
     }
 
     /** util method
