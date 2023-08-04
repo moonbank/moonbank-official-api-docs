@@ -238,7 +238,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 | number     | user ID number   | YES|String
 | expiry_date     | user ID expiry date   | YES|String| YYYY-MM-DD
 | frontImg     | user ID front image  | YES|String| [image format](#image-data)|
-| backImg     | user ID back image   | YES|String|[image format](#image-data)|
+| backImg     | user ID back image   | NO, For passport types, only one photo needs to be submitted, while for ID card types, two photos need to be submitted.|String|[image format](#image-data)|
 
 **HTTP Response**
   Common response
