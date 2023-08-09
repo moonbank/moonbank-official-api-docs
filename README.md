@@ -399,7 +399,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 Common response
 NOTE
-* Physical card recharge will directly return the recharge result. 
+* Physical card recharge will directly return the recharge result. In rare cases, it may not be possible to immediately return results due to communication with upstream networks.
 * The virtual card has some cards with bin cards and cannot directly return recharge results(The [Response code](#response-codes) is 99997). You need to process notify the recharge results in webhook.
 
 ### 4. Set Bankcard ATM Pin
@@ -627,7 +627,7 @@ result decrypted json string
 
 |field | description|
 | ---------- |:-------:|
-|recordNo| user bankcard unique ID, parameter of API when doing any card operating |
+|recordNo| record unique No. |
 |occurTime| card Number, Only after the card is approved can the complete card number be obtained. [milliseconds UNIX Time](https://en.wikipedia.org/wiki/Unix_time) |
 |localCurrencyAmt| Local currency trans Amount |
 |localCurrency| Local currency type |
@@ -637,6 +637,146 @@ result decrypted json string
 |transType| Transaction type |
 |authType| Authorisation type (Purchase or ATM) |
 |merchantName| Merchant name |
+
+## Notify related 
+
+ ***Response structure***
+
+```javascript
+{
+	"appId": "app_447770",
+	"result": "e9ab9e50d2028d6388322aea74544206ce9df7669e474a7c6c2fb7fdce533cb5714915b4dab8d8369caac53dfb9386804aad938ac33d41a16f63871212d12d452f408be1fddc344849bc5c48c22ec8ace2839d29fb5601c2c52966d4f02b3f5e9e0711a4e55334256d9c14e0119d5d9fe9ae35fec26d2059fad87b755c2b384427e08b898f21a91715ef8268736156cf61a10d18d57d4a57700ebecf9e7afd36e2839d29fb5601c2c52966d4f02b3f5e802f0c406dc0145256bec3ee665c43032b44abe0cdb0fe8a5de3dd9871661c0e88edb4830bb9e22d9a81024e2a6c0a0f97208e8bf2de8bddc7b042d707eabab487c48d9b757e89fe0495a37709cf1ed5fe05e9b65ab8af4270d18e7fd0fdf9fb04495d45589367ef5f3bff5ea8d5b291a85c5bf9db14a120fb4176056bd453fce35f1e124d3a7de068d1fc33865ca334d8ffff9da47a110c15a8cc9a3e6bff208e8af3d7dc052e384f56c7df5e28b375693caa79921be63fc220fafe2d135397828a340ea84b6cf0c5d783eeaa39f6647851c063aacb452c49f6858d61e790304e05dbe488826d8257332914dbe6d4ffee4431070b04512b6cc9b34450c5812f45f02ca6c4b601a7ab0ad0f50577b5e88a77ba00280b1132e149e063b3aac78c547f15d7af052ea38581545bfd706a56",
+	"type": "TRANSACTION_CREATED"
+}
+```
+
+The result field is Base64 encoded and AES128 encrypted with the appSecret, need decrypt and decode to get the JSON response data.
+
+### Notify types
+|type | description|
+| ---------- |:-------:|
+|TRANSACTION_VERIFICATION_CODE| User transaction verification code,need send to user`s mobile or email|
+|CARD_STATUS_CHANGE|Card status notify, Trigger when [card status](#card-status) change|
+|TRANSACTION_CREATED| Card transactions detail information|
+|CARD_RECHARGE_RESULT| Card Result, when [Recharge](#3-recharge-bankcard) return code=99997.When the results are clear, we will send this notification |
+
+
+### 1.TRANSACTION_VERIFICATION_CODE
+result decrypted json string
+
+```javascript
+{
+        "cardNo": "4242424242413691", 
+        "code": "123456",
+        "createAt": 1691249025085,
+        "userBankcardId": 145
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|userBankcardId| user bankcard unique ID |
+|cardNo| user bankcard No. |
+|code| verification code  |
+|createAt| Trigger time |
+
+### 2.CARD_STATUS_CHANGE
+
+result decrypted json string
+
+```javascript
+{
+        "createAt": 1691248718245,
+        "reason": "提交資料不通過審批",
+        "status": "AUDIT_NOT_PASS",
+        "userBankcardId": 146,
+        "cardNo":"4242424242413691"
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|userBankcardId| user bankcard unique ID |
+|status| [Bankcard status](#card-status) |
+|reason| Reason for failure to pass the review, only returned when not passed |
+|code| verification code  |
+|cardNo| Bankcard No. Other status returns except for failed review  |
+|createAt| Trigger time |
+
+### 3.TRANSACTION_CREATED
+
+result decrypted json string
+
+```javascript
+{
+        "cardNo": "4242424242413691",
+        "createAt": 1691549830756,
+        "currency": "USD",
+        "transaction": {
+                        "authType": "",
+                        "id": 254,
+                        "localCurrency": "USD",
+                        "localCurrencyAmt": "+99.00",
+                        "occurTime": 1691549808050,
+                        "recordNo": "ef4248e4-d274-4f33-bc8c-0fad02b90c07",
+                        "transCurrency": "HKD",
+                        "transCurrencyAmt": "+771.20",
+                        "transStatus": "posted",
+                        "transType": "topup"
+                        },
+        "userBankcardId": 145
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|userBankcardId| user bankcard unique ID |
+|status| [Bankcard status](#card-status) |
+|currency| Fix value USD  |
+|cardNo| Bankcard No. Other status returns except for failed review  |
+|createAt| Trigger time |
+|transaction| Transaction detail |
+|transaction.authType| PURCHASE or ATM |
+|transaction.id| Record ID |
+|transaction.recordNo| Record unique No. |
+|transaction.localCurrency| Card Local currency |
+|transaction.localCurrencyAmt| Card Local currency amount |
+|transaction.transCurrency| Card transaction currency |
+|transaction.transCurrencyAmt| Card transaction currency amount |
+|transaction.transStatus| Transaction Status |
+|transaction.transType| Transaction Type |
+
+###4.CARD_RECHARGE_RESULT
+
+result decrypted json string
+
+```javascript
+{
+        "amount": 100.000000000000000000,
+        "cardNo": "1111113485704136",
+        "createAt": 1691550780785,
+        "currency": "USD",
+        "receiveAmount": 99.500000000000000000,
+        "status": "SUCCESS",
+        "userBankcardId": 140
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|userBankcardId| user bankcard unique ID |
+|amount| User operate Amount |
+|receiveAmount| Card receive Amount, Only returned when status is SUCCESS |
+|currency| Operate Currency   |
+|status| SUCCESS or FAILED , recharge result  |
+|cardNo| Bankcard No. Other status returns except for failed review  |
+|createAt| Trigger time |
+
+
 
 
 # Fields ENUM Description

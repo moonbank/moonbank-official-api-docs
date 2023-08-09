@@ -252,15 +252,15 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-//        userRegister("1","18888888867","188888888662@188.com");
-//        setUserProfession("hgdo7w3bu3263jdc");
-//        applyBankcard("hgdo7w3bu3263jdc",1,"China");
-//        rechargeBankcard("hgao4u6m26jvhael",135,new BigDecimal(16));
+//        userRegister("1","58888888867","588888888662@188.com");
+//        setUserProfession("hgjots8ajwgj2k4l");
+//        applyBankcard("hgjots8ajwgj2k4l",9,"China");
+        rechargeBankcard("hgdo7w3bu3263jdc",140,new BigDecimal(100));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
 //        queryBankcardTransactions("hgao4u6m26jvhael",135);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
-        queryBankcardInfo("hgao4u6m26jvhael",140);
+//        queryBankcardInfo("hgdo7w3bu3263jdc",140);
     }
 
     /** util method
