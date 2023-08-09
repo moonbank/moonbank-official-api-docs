@@ -749,7 +749,7 @@ result decrypted json string
 |transaction.transStatus| Transaction Status |
 |transaction.transType| Transaction Type |
 
-###4.CARD_RECHARGE_RESULT
+### 4.CARD_RECHARGE_RESULT
 
 result decrypted json string
 
