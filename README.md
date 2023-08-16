@@ -269,6 +269,8 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 ***extra request http header***
 
 header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
 The testing environment does not provide a charging address. If you want to test this interface, please use uid= 'eoi7g774uuuyrasz'
 
 
