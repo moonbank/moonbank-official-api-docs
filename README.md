@@ -307,7 +307,7 @@ result decrypted json string
 
 |field | description|type|
 | ---------- |:-------:|---|
-| symbol      | Recharge coin symbol (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
+| symbol      | Recharge coin ***Symbol*** (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
 | image      | Recharge coin image |String
 | rechargeMinLimit      | The minimum quantity that can be received, less than which cannot be received |String
 | confirmBlockCount      | Minimum confirmation number for transfer to account |String
