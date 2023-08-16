@@ -32,6 +32,9 @@ public class MoonbankMethods {
     // query bankcard info
     public static String QUERY_BANKCARD_INFO = "/bankcard/cardInfo";
 
+    // query user recharge info
+    public static String USER_RECHARGE_INFO = "/user/coinRechargeInfo";
+
 
 
 }

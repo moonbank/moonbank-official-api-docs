@@ -196,7 +196,7 @@ public class MoonbankApi {
         request.setUserBankcardId(userBankcardId);
 //        request.setFromTimestamp(1690878577000L);
 //        request.setEndTimestamp(1690878578000L);
-        request.setPageSize(10);
+        request.setPageSize(100);
         request.setPageNum(1);
         String result = postData(uId,MoonbankMethods.QUERY_BANKCARD_TRANSACTIONS, request);
         System.out.println("queryBankcardTransactions response String:  " + result);
@@ -247,6 +247,23 @@ public class MoonbankApi {
         }
     }
 
+    /**
+     * uer recharge info
+     * @param uId
+     */
+    public static void userRechargeInfo(String uId) {
+        UserRechargeInfoRequest request = new UserRechargeInfoRequest();
+        String result = postData(uId,MoonbankMethods.USER_RECHARGE_INFO, request);
+        System.out.println("userRechargeInfo response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("userRechargeInfo response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("userRechargeInfo encode result===>" + descStr);
+        }
+    }
+
     public static void main(String[] args) {
 //        getSystemClock();
 
@@ -254,13 +271,14 @@ public class MoonbankApi {
 
 //        userRegister("1","98888888867","988888888662@188.com");
 //        setUserProfession("hgvo4ka3xgd8znck");
-        applyBankcard("hgvo4ka3xgd8znck",9,"KR");
+//        applyBankcard("hgvo4ka3xgd8znck",9,"KR");
 //        rechargeBankcard("hgroqiskjjr7t663",157,new BigDecimal(100));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
-//        queryBankcardTransactions("hgao4u6m26jvhael",135);
+//        queryBankcardTransactions("hgrokxgh87hzma7j",145);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
+        userRechargeInfo("eoi7g774uuuyrasz");
     }
 
     /** util method
