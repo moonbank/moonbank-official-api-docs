@@ -307,13 +307,13 @@ result decrypted json string
 
 |field | description|type|
 | ---------- |:-------:|---|
-| symbol      | Recharge coin symbol |String
+| symbol      | Recharge coin symbol (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
 | image      | Recharge coin image |String
 | rechargeMinLimit      | The minimum quantity that can be received, less than which cannot be received |String
 | confirmBlockCount      | Minimum confirmation number for transfer to account |String
 | addressInfo      | Address Information |String
 | addressInfo.address      | Address String |String
-| addressInfo.name      | Address Chain name |String
+| addressInfo.name      | Address ***Chain name*** (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
 
 ## Bankcard related APIs
 ### 1. Bankcard Information List
