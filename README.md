@@ -266,6 +266,12 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 | ---------- |:-------:|-------|---|
 | currency     | Recharge coin symbol, default value is 'USDT' |NO|String
 
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+The testing environment does not provide a charging address. If you want to test this interface, please use uid= 'eoi7g774uuuyrasz'
+
+
 **HTTP Response**
 ```javascript
     # Response
@@ -283,7 +289,7 @@ result decrypted json string
 [{
     "addressInfo": [
             {
-                "address": "TVADmLVgY1GTuViu9PcdrBm6nstMsbFFiD",
+                "address": "TVA***VgY1GTuViu9PcdrBm6nstMsbFFiD",
                 "name": "TRC20"
             }
         ],
