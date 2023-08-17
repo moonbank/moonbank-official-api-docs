@@ -243,6 +243,79 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 **HTTP Response**
   Common response
 
+### 3. User Coin Recharge Info
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /user/coinRechargeInfo
+    
+    example: https://test.moonbank.me/api-web/user/coinRechargeInfo
+    
+    #body
+
+    {
+        "currency":"USDT"
+    }
+```
+***request fields***
+
+|field | description|required|type|
+| ---------- |:-------:|-------|---|
+| currency     | Recharge coin symbol, default value is 'USDT' |NO|String
+
+***extra request http header***
+
+header 'uId' = uid ,value from [user register](#1-user-register) response;
+
+
+The testing environment does not provide a charging address. If you want to test this API, please use uid= 'eoi7g774uuuyrasz'
+
+
+**HTTP Response**
+```javascript
+    # Response
+{
+    "success": true,
+    "result": "20bebe62eb8db8244b27e6565ee08556b0e8e73b80b44d6cfc22fef5bac802e551b7b5499fb2142d88e9d698136b170b1d97ba8040fe3929c0ab483637a45e965f780daaca6b6f57171cf5ef324d7982c3ba824d0016efba48843150e1a492d53b557c1c50ce51799e96fcf3caaaa4655f41e1233ccbf1c333a52e5d8265c3d044c165d26e6061deeb22622a5c74a67cb0e374cf869edb2af3537cea152b89415f17afda973e8df06cae2b72c2495e1aebf6034839ed0ee18940f3743cf0742d349afc42f48e10a2943801848fb3e2fb6da5ae281782ee5a6211815729428740ed379a113e505ddce30c38ff16ce6d355def64399e5af9af0b02197655c1ccfcb755c85e94525be6380a0d36404a3865af2cc13c9f431d074d1ddfd3563e3e798113add86d888d8d5c61bc89d4772ffa8915e3124b3a3152c3b8b201e795ae56f022467a9a05a2d86de9426958d34e705737809f2e713ec37aef03a96f9c2d6a9b462baabf6d683971eabf9254a78335695423bac2bafa1c689d0fdeeedb764369bf0331aea0bb0fbce8ff954d0d811263ebec539ddc51dfd477c826b054fdbc",
+    "code": 1,
+    "message": "Successful!"
+}
+```
+
+result decrypted json string
+
+```javascript
+[{
+    "addressInfo": [
+            {
+                "address": "TVA***VgY1GTuViu9PcdrBm6nstMsbFFiD",
+                "name": "TRC20",
+                "aboutFee":"2.25"
+            }
+        ],
+    "confirmBlockCount": 10,
+    "image": "https://test.moonbank.me/static-res/currency/usdt.png",
+    "rechargeMinLimit": 5.0000,
+    "symbol": "USDT"
+}]
+```
+
+**Result fields**
+
+
+|field | description|type|
+| ---------- |:-------:|---|
+| symbol      | Recharge coin ***Token Symbol*** (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
+| image      | Recharge coin image |String
+| rechargeMinLimit      | The minimum quantity that can be received, less than which cannot be received |String
+| confirmBlockCount      | Minimum confirmation number for transfer to account |String
+| addressInfo      | Address Information |String
+| addressInfo.address      | Address String |String
+| addressInfo.aboutFee      | The estimated handling fee is based on the gas fee value upon receipt |String
+| addressInfo.name      | Address ***Chain name*** (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
 
 ## Bankcard related APIs
 ### 1. Bankcard Information List
