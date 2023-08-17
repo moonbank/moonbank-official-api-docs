@@ -314,7 +314,7 @@ result decrypted json string
 | confirmBlockCount      | Minimum confirmation number for transfer to account |String
 | addressInfo      | Address Information |String
 | addressInfo.address      | Address String |String
-| addressInfo.aboutFee      | The estimated handling fee is based on the gas fee value at the time of receipt |String
+| addressInfo.aboutFee      | The estimated handling fee is based on the gas fee value at the time of receipt, Unit is the same as symbol. |String
 | addressInfo.name      | Address ***Chain name*** (***Must send the token of the specified main chain to the address, otherwise it cannot be retrieved.***) |String
 
 ## Bankcard related APIs
