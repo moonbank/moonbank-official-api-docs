@@ -251,8 +251,9 @@ public class MoonbankApi {
      * uer recharge info
      * @param uId
      */
-    public static void userRechargeInfo(String uId) {
+    public static void userRechargeInfo(String uId,BigDecimal amount) {
         UserRechargeInfoRequest request = new UserRechargeInfoRequest();
+        request.setAmount(amount);
         String result = postData(uId,MoonbankMethods.USER_RECHARGE_INFO, request);
         System.out.println("userRechargeInfo response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -278,7 +279,7 @@ public class MoonbankApi {
 //        queryBankcardTransactions("hgrokxgh87hzma7j",145);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
-        userRechargeInfo("eoi7g774uuuyrasz");
+        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10));
     }
 
     /** util method
