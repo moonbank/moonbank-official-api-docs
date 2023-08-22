@@ -698,6 +698,47 @@ result decrypted json string
 |authType| Authorisation type (Purchase or ATM) |
 |merchantName| Merchant name |
 
+## Account related APIs
+### 1. Query Account Asset
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /account/asset
+
+    example: https://test.moonbank.me/api-web/account/asset
+    
+    #body
+    {
+    }
+```
+
+***request fields***
+
+NONE
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    {
+        "availableAmount": 398.000000000000000000,
+        "currency": "USD",
+        "frozenAmount": 25.000000000000000000
+    }
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|availableAmount| Account available Amount |
+|frozenAmount| Account frozen Amount |
+|currency| currency |
+
+
+
 ## Notify related 
 
  ***Response structure***
@@ -835,45 +876,6 @@ result decrypted json string
 |status| SUCCESS or FAILED , recharge result  |
 |cardNo| Bankcard No. Other status returns except for failed review  |
 |createAt| Trigger time |
-
-## Bankcard related APIs
-### 1. Query Account Asset
-**HTTP Request**
-
-```javascript
-    # Request
-    
-    POST /account/asset
-
-    example: https://test.moonbank.me/api-web/account/asset
-    
-    #body
-    {
-    }
-```
-
-***request fields***
-
-NONE
-
-**HTTP Response**
-
-result decrypted json string
-
-```javascript
-    {
-        "availableAmount": 398.000000000000000000,
-        "currency": "USD",
-        "frozenAmount": 25.000000000000000000
-    }
-```
-**Result fields**
-
-|field | description|
-| ---------- |:-------:|
-|availableAmount| Account available Amount |
-|frozenAmount| Account frozen Amount |
-|currency| currency |
 
 
 
