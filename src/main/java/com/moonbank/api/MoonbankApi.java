@@ -310,8 +310,8 @@ public class MoonbankApi {
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
 //        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10.11));
-        accountAsset();
-//        accountRecharge();
+//        accountAsset();
+        accountRecharge();
     }
 
     /** util method

@@ -737,6 +737,65 @@ result decrypted json string
 |frozenAmount| Account frozen Amount |
 |currency| currency |
 
+### 2. Query Account Recharge records
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /account/user/rechargeList
+
+    example: https://test.moonbank.me/api-web/account/user/rechargeList
+    
+    #body
+    {
+        "pageNum": 1,
+        "pageSize": 10,
+        "uid": "ewaoaylm5ueywbib"
+    }
+```
+***request fields***
+
+|field | description|required|type|default value|
+| ---------- |:-------:|-------|---|---|
+| uid     | Specify UID to query user recharge records   | NO |String|
+| pageSize     | Paging query, one page size |NO|Number|10|
+| pageNum     | Paging query, which page |NO |Number|1|
+
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    [{
+        "address": "TJRtDxs2NzTwsGDxehTnWAZDkDCJJyA7WA",
+        "amount": 8.260569000000000000,
+        "createTime": 1692618341000,
+        "fee": 0E-18,
+        "hash": "1c7831b44414db6e3e12d6ded4a71b75668c7d73b347123a5dc275711a6caf98",
+        "receiveUSDValue": 8.26,
+        "rechargeStatus": "SUCCESS",
+        "symbol": "USDT",
+        "uid": "ewao6vdunfdllre7"
+},
+        ...
+    ]
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|address| User recharge to address |
+|amount| Coin amount |
+|createTime| Recharge create time |
+|fee| Recharge fee |
+|hash| Coin transaction hash ID|
+|receiveUSDValue| recharge USD Value |
+|rechargeStatus| Transaction status |
+|symbol| Recharge coin type |
+|uid| Recharge user ID |
 
 
 ## Notify related 
