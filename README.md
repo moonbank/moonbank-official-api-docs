@@ -291,7 +291,8 @@ result decrypted json string
 
 ```javascript
 {
-    "gateway": "https://test.moonbank.me/payment/#/?orderNo=MB230819193948569135325"
+        "gateway": "https://test.moonbank.me/payment/#/?orderNo=MB230819193948569135325",
+        "orderNo":"MB230819193948569135325"
 }
 ```
 
@@ -301,6 +302,7 @@ result decrypted json string
 |field | description|type|
 | ---------- |:-------:|---|
 | gateway    | URL of payment gateway |String
+| orderNo    | Unique Order Number |String
 
 
 ## Bankcard related APIs
@@ -388,7 +390,8 @@ result decrypted json string
     #body
     {
         "bankcardId": 9,
-        "residenceAddress": ""
+        "residenceAddress": "",
+        "userBankcardId":171 // NOT Required
     }
 ```
 
@@ -402,6 +405,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 |field | description|required|type|
 | ---------- |:-------:|-------|---|
 | bankcardId     | bankcard ID from card information list response  | YES |Number|
+| userBankcardId     | When the card application is rejected and needs to be reapplied, this field needs to be passed, and the value also comes from this API  | NO |Number|
 | residenceAddress     | The user's residential address must be detailed to the building number or house number. |NO, Only PHYSICAL card need this field |String
 
 

@@ -129,9 +129,10 @@ public class MoonbankApi {
      * @param bankcardId
      * @param residenceAddress
      */
-    public static void applyBankcard(String uId,Integer bankcardId,String residenceAddress) {
+    public static void applyBankcard(String uId,Integer bankcardId,Integer userBankcardId,String residenceAddress) {
         ApplyBankcardRequest request = new ApplyBankcardRequest();
         request.setBankcardId(bankcardId);
+        request.setUserBankcardId(userBankcardId);
         request.setResidenceAddress(residenceAddress);
         String result = postData(uId,MoonbankMethods.APPLY_BANKCARD, request);
         System.out.println("applyBankcard response String:  " + result);
@@ -300,9 +301,9 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-//        userRegister("1","98888888867","988888888662@188.com");
-//        setUserProfession("hgvo4ka3xgd8znck");
-//        applyBankcard("hgvo4ka3xgd8znck",9,"KR");
+//        userRegister("1","98888888862","98888888863@188.com");
+//        setUserProfession("hgnokmx8zifszxcz");
+        applyBankcard("hgnokmx8zifszxcz",9,171,"KR");
 //        rechargeBankcard("hgroqiskjjr7t663",157,new BigDecimal(100));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
@@ -311,7 +312,7 @@ public class MoonbankApi {
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
 //        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10.11));
 //        accountAsset();
-        accountRecharge();
+//        accountRecharge();
     }
 
     /** util method
