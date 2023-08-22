@@ -265,6 +265,36 @@ public class MoonbankApi {
         }
     }
 
+    public static void accountAsset() {
+        QueryAccountAssetRequest request = new QueryAccountAssetRequest();
+        String result = postData(null,MoonbankMethods.USER_ACCOUNT_ASSET, request);
+        System.out.println("AccountAsset response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("AccountAsset response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("AccountAsset encode result===>" + descStr);
+        }
+    }
+
+    public static void accountRecharge() {
+        QueryAccountRechargeRequest request = new QueryAccountRechargeRequest();
+        request.setPageSize(10);
+        request.setUid("ewaoaylm5ueywbib");
+//        request.setSymbol("USDT");
+        request.setPageNum(1);
+        String result = postData(null,MoonbankMethods.USER_ACCOUNT_USER_RECHARGE, request);
+        System.out.println("accountRecharge response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("accountRecharge response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("accountRecharge encode result===>" + descStr);
+        }
+    }
+
     public static void main(String[] args) {
 //        getSystemClock();
 
@@ -279,7 +309,9 @@ public class MoonbankApi {
 //        queryBankcardTransactions("hgrokxgh87hzma7j",145);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
-        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10));
+//        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10.11));
+        accountAsset();
+//        accountRecharge();
     }
 
     /** util method

@@ -35,6 +35,9 @@ public class MoonbankMethods {
     // query user recharge info
     public static String USER_RECHARGE_INFO = "/user/coinRechargeInfo";
 
+    public static String USER_ACCOUNT_ASSET = "/account/asset";
+
+    public static String USER_ACCOUNT_USER_RECHARGE = "/account/user/rechargeList";
 
 
 }

@@ -719,7 +719,7 @@ The result field is Base64 encoded and AES128 encrypted with the appSecret, need
 |CARD_STATUS_CHANGE|Card status notify, Trigger when [card status](#card-status) change|
 |TRANSACTION_CREATED| Card transactions detail information|
 |CARD_RECHARGE_RESULT| Card Result, when [Recharge](#3-recharge-bankcard) return code=99997.When the results are clear, we will send this notification |
-
+|COIN_RECHARGE_RESULT| User coin Recharge Result|
 
 ### 1.TRANSACTION_VERIFICATION_CODE
 result decrypted json string
@@ -836,6 +836,44 @@ result decrypted json string
 |cardNo| Bankcard No. Other status returns except for failed review  |
 |createAt| Trigger time |
 
+## Bankcard related APIs
+### 1. Query Account Asset
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /account/asset
+
+    example: https://test.moonbank.me/api-web/account/asset
+    
+    #body
+    {
+    }
+```
+
+***request fields***
+
+NONE
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    {
+        "availableAmount": 398.000000000000000000,
+        "currency": "USD",
+        "frozenAmount": 25.000000000000000000
+    }
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|availableAmount| Account available Amount |
+|frozenAmount| Account frozen Amount |
+|currency| currency |
 
 
 
