@@ -940,7 +940,33 @@ result decrypted json string
 |cardNo| Bankcard No. Other status returns except for failed review  |
 |createAt| Trigger time |
 
+### 5.COIN_RECHARGE_RESULT
 
+result decrypted json string
+
+```javascript
+{
+        "amount": 100,
+        "symbol": "USDT",
+        "createAt": 1692711247364,
+        "currency": "USD",
+        "orderNo": "MB230822103810254026143",
+        "receiveAmount": 97.75,
+        "status": "SUCCESS",
+        "uid": "eo3cqhz3lujehlar"
+}
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|amount| Address receive coin Amount |
+|symbol| Address receive coin symbol |
+|receiveAmount| Account receive USD Value |
+|currency| Operate Currency   |
+|status| SUCCESS or FAILED , recharge result  |
+|orderNo| Payment Order No.  |
+|createAt| Occur time |
 
 # Fields ENUM Description
 

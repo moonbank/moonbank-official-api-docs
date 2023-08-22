@@ -303,14 +303,14 @@ public class MoonbankApi {
 
 //        userRegister("1","98888888862","98888888863@188.com");
 //        setUserProfession("hgnokmx8zifszxcz");
-        applyBankcard("hgnokmx8zifszxcz",9,171,"KR");
+//        applyBankcard("hgnokmx8zifszxcz",9,171,"KR");
 //        rechargeBankcard("hgroqiskjjr7t663",157,new BigDecimal(100));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
 //        queryBankcardTransactions("hgrokxgh87hzma7j",145);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
 //        queryBankcardInfo("hgroqiskjjr7t663",157);
-//        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(10.11));
+        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(100));
 //        accountAsset();
 //        accountRecharge();
     }
