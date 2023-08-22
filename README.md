@@ -960,6 +960,7 @@ result decrypted json string
 
 |field | description|
 | ---------- |:-------:|
+|uid| Coin recharge user Id |
 |amount| Address receive coin Amount |
 |symbol| Address receive coin symbol |
 |receiveAmount| Account receive USD Value |
