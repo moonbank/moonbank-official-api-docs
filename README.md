@@ -946,11 +946,12 @@ result decrypted json string
 
 ```javascript
 {
-        "amount": 100,
+        "coinAmount":2000,
         "symbol": "USDT",
         "createAt": 1692711247364,
         "currency": "USD",
         "orderNo": "MB230822103810254026143",
+        "amount": 100,
         "receiveAmount": 97.75,
         "status": "SUCCESS",
         "uid": "eo3cqhz3lujehlar"
@@ -961,9 +962,10 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |uid| Coin recharge user Id |
-|amount| Address receive coin Amount |
+|coinAmount| Address receive coin Amount |
 |symbol| Address receive coin symbol |
-|receiveAmount| Account receive USD Value |
+|amount| Address receive USD Value |
+|receiveAmount| Account receive USD Value,The difference with ***amount*** is the handling fee(USD) |
 |currency| Operate Currency   |
 |status| SUCCESS or FAILED , recharge result  |
 |orderNo| Payment Order No.  |
