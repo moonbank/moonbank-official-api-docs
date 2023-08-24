@@ -946,7 +946,7 @@ result decrypted json string
 
 ```javascript
 {
-        "coinAmount":2000,
+        "coinAmount":100,
         "symbol": "USDT",
         "createAt": 1692711247364,
         "currency": "USD",
