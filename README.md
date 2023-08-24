@@ -391,6 +391,7 @@ result decrypted json string
     {
         "bankcardId": 9,
         "residenceAddress": "",
+        "tag":"xxxxx",
         "userBankcardId":171 // NOT Required
     }
 ```
@@ -407,7 +408,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 | bankcardId     | bankcard ID from card information list response  | YES |Number|
 | userBankcardId     | When the card application is rejected and needs to be reapplied, this field needs to be passed, and the value also comes from this API  | NO |Number|
 | residenceAddress     | The user's residential address must be detailed to the building number or house number. |NO, Only PHYSICAL card need this field |String
-
+| tag     | Custom Tag Information  | NO |String|
 
 **HTTP Response**
 
@@ -417,7 +418,8 @@ result decrypted json string
     {
         "cardNo": "424242 **** **** ****",
         "userBankcardId": 137,
-        "status": "AUDITING"
+        "status": "AUDITING",
+        "tag":"xxxxx"
     }
 ```
 **Result fields**
@@ -427,6 +429,7 @@ result decrypted json string
 |userBankcardId| user bankcard unique ID, parameter of API when doing any card operating |
 |cardNo| card Number, Only after the card is approved can the complete card number be obtained |
 |status| [card status enum](#card-status) |
+| tag     | Custom Tag Information  |
 
 ### 3. Recharge Bankcard
 
@@ -582,6 +585,7 @@ result decrypted json string
         "currency": "USD",
         "expiryDate": "202707",
         "monthFee": 0.00,
+        "tag":"xxx"
         "rechargeFee": 0.01,
         "userBankCardStatus": "ACTIVE",
         "hashHolderInfo": true,
@@ -627,6 +631,7 @@ result decrypted json string
 |vccCardHolderVo.billingCity| Card Holder billingCity |
 |vccCardHolderVo.billingState| Card Holder billingState |
 |vccCardHolderVo.billingZipCode| Card Holder billingZipCode |
+| tag     | Custom Tag Information  |
 
 
 
