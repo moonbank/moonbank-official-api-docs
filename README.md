@@ -264,7 +264,7 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 |field | description|required|type|
 | ---------- |:-------:|-------|---|
-| amount     | Recharge Amount |NO|Number
+| amount     | Recharge Amount |YES|Number
 
 ***extra request http header***
 
