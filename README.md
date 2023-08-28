@@ -243,21 +243,20 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 **HTTP Response**
   Common response
 
-### 3. User Coin Recharge Info
+### 3. User usd Recharge Info(Using digital currency)
 
 **HTTP Request**
 
 ```javascript
     # Request
     
-    POST /user/coinRechargeInfo
+    POST /user/usdRechargeInfo
     
-    example: https://test.moonbank.me/api-web/user/coinRechargeInfo
+    example: https://test.moonbank.me/api-web/user/usdRechargeInfo
     
     #body
 
     {
-        "currency":"USDT",
         "amount":100.00
     }
 ```
@@ -265,7 +264,6 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 |field | description|required|type|
 | ---------- |:-------:|-------|---|
-| currency     | Recharge coin symbol, default value is 'USDT' |NO|String
 | amount     | Recharge Amount |NO|Number
 
 ***extra request http header***
@@ -779,11 +777,9 @@ result decrypted json string
 
 ```javascript
     [{
-        "address": "TJRtDxs2NzTwsGDxehTnWAZDkDCJJyA7WA",
         "amount": 8.260569000000000000,
         "createTime": 1692618341000,
         "fee": 0E-18,
-        "hash": "1c7831b44414db6e3e12d6ded4a71b75668c7d73b347123a5dc275711a6caf98",
         "receiveUSDValue": 8.26,
         "rechargeStatus": "SUCCESS",
         "symbol": "USDT",

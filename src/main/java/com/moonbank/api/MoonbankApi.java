@@ -253,10 +253,10 @@ public class MoonbankApi {
      * uer recharge info
      * @param uId
      */
-    public static void userRechargeInfo(String uId,BigDecimal amount) {
+    public static void userUSDRechargeInfo(String uId,BigDecimal amount) {
         UserRechargeInfoRequest request = new UserRechargeInfoRequest();
         request.setAmount(amount);
-        String result = postData(uId,MoonbankMethods.USER_RECHARGE_INFO, request);
+        String result = postData(uId,MoonbankMethods.USD_RECHARGE_INFO, request);
         System.out.println("userRechargeInfo response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
         });
@@ -283,7 +283,7 @@ public class MoonbankApi {
     public static void accountRecharge() {
         QueryAccountRechargeRequest request = new QueryAccountRechargeRequest();
         request.setPageSize(10);
-        request.setUid("ewaoaylm5ueywbib");
+//        request.setUid("ewaoaylm5ueywbib");
 //        request.setSymbol("USDT");
         request.setPageNum(1);
         String result = postData(null,MoonbankMethods.USER_ACCOUNT_USER_RECHARGE, request);
@@ -302,18 +302,18 @@ public class MoonbankApi {
 
 //        bankcardTemplateList();
 
-//        userRegister("1","28888888862","198888888863@188.com");
+//        userRegister("1","38888888862","398888888863@188.com");
 //        setUserProfession("hg6obqirymm74y8j");
 //        applyBankcard("hg6obqirymm74y8j",9,171,"KR");
-//        rechargeBankcard("hgroqiskjjr7t663",157,new BigDecimal(100));
+//        rechargeBankcard("hh8ocqsju5h7xxzq",180,new BigDecimal(100));
 
 //        setBankcardPin("hgao4u6m26jvhael",136,"123456");
 //        queryBankcardTransactions("hgrokxgh87hzma7j",145);
 //        queryBankcardBalance("hgao4u6m26jvhael",136);
-        queryBankcardInfo("hg6obqirymm74y8j",174);
-//        userRechargeInfo("eoi7g774uuuyrasz",new BigDecimal(100));
+//        queryBankcardInfo("hg6obqirymm74y8j",174);
+//        userUSDRechargeInfo("hh8ocqsju5h7xxzq",new BigDecimal(2));
 //        accountAsset();
-//        accountRecharge();
+        accountRecharge();
     }
 
     /** util method
