@@ -792,11 +792,9 @@ result decrypted json string
 
 |field | description|
 | ---------- |:-------:|
-|address| User recharge to address |
 |amount| Coin amount |
 |createTime| Recharge create time |
 |fee| Recharge fee |
-|hash| Coin transaction hash ID|
 |receiveUSDValue| recharge USD Value |
 |rechargeStatus| Transaction status |
 |symbol| Recharge coin type |
