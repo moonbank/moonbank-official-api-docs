@@ -18,8 +18,13 @@ public class MoonbankApi {
 
     // test env gateway
     private static final String GATEWAY = "https://test.moonbank.me/api-web";
-    // dev env gateway
-//    private static final String GATEWAY = "http://localhost:8848/api-web";
+
+    // APPID
+    private static final String APP_ID = "app_447770";
+
+    // SECRET
+    private static String APP_SECRET = "b635dd5c87f7bf73387929203321b1e1";
+
 
     private static final int NOTIFY_TIMEOUT = 15000;
 
@@ -34,11 +39,7 @@ public class MoonbankApi {
     // proxy port
     private static int proxyPort = 7070;
 
-    // APPID
-    private static final String APP_ID = "app_447770";
 
-    // SECRET
-    private static String APP_SECRET = "b635dd5c87f7bf73387929203321b1e1";
 
     /**
      * get system clock(system status)
@@ -298,22 +299,22 @@ public class MoonbankApi {
     }
 
     public static void main(String[] args) {
-//        getSystemClock();
+//        getSystemClock();i
 
 //        bankcardTemplateList();
 
-//        userRegister("1","38888888862","398888888863@188.com");
-//        setUserProfession("hg6obqirymm74y8j");
-//        applyBankcard("hg6obqirymm74y8j",9,171,"KR");
-//        rechargeBankcard("hh8ocqsju5h7xxzq",180,new BigDecimal(100));
+//        userRegister("86","23800138000","23800138000@188.com");
+//        setUserProfession("35910");
+//        applyBankcard("35910",1,null,"KR");
+//        rechargeBankcard("35910",292,new BigDecimal(100));
 
-//        setBankcardPin("hgao4u6m26jvhael",136,"123456");
-//        queryBankcardTransactions("hgrokxgh87hzma7j",145);
-//        queryBankcardBalance("hgao4u6m26jvhael",136);
-//        queryBankcardInfo("hg6obqirymm74y8j",174);
-//        userUSDRechargeInfo("hh8ocqsju5h7xxzq",new BigDecimal(2));
+//        setBankcardPin("35910",136,"123456");
+//        queryBankcardTransactions("35910",292);
+//        queryBankcardBalance("35910",292);
+        queryBankcardInfo("35910",292);
+//        userUSDRechargeInfo("35910",new BigDecimal(2));
 //        accountAsset();
-        accountRecharge();
+//        accountRecharge();
     }
 
     /** util method

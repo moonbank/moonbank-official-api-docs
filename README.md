@@ -538,6 +538,7 @@ result decrypted json string
 ```javascript
     {
     "balance": 456.34
+    "userBankcardId":100
     }
 ```
 **Result fields**
@@ -545,6 +546,7 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |balance| Bankcard Balance Amount (USD) |
+|userBankcardId| user bankcard unique ID |
 ### 6. Query Bankcard Information
 **HTTP Request**
 
@@ -679,6 +681,7 @@ result decrypted json string
 ```javascript
     [{
         "id": 191,
+        "userBankcardId":100,
         "localCurrency": "HKD",
         "localCurrencyAmt": "-24.27",
         "merchantName": "MEITUAN FOOD           BEIJING       CHN",
@@ -696,6 +699,7 @@ result decrypted json string
 
 |field | description|
 | ---------- |:-------:|
+| userBankcardId | user bankcard ID from request parameter | 
 |recordNo| record unique No. |
 |occurTime| card Number, Only after the card is approved can the complete card number be obtained. [milliseconds UNIX Time](https://en.wikipedia.org/wiki/Unix_time) |
 |localCurrencyAmt| Local currency trans Amount |
@@ -899,7 +903,6 @@ result decrypted json string
 |field | description|
 | ---------- |:-------:|
 |userBankcardId| user bankcard unique ID |
-|status| [Bankcard status](#card-status) |
 |currency| Fix value USD  |
 |cardNo| Bankcard No. Other status returns except for failed review  |
 |createAt| Trigger time |
