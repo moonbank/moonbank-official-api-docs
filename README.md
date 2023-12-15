@@ -122,7 +122,7 @@ Response of use register
 
 ```javascript
 {
-    "uid": "hgeojte3awbrcp76"
+    "uid": "1234"
 }
 ```
 

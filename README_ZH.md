@@ -114,10 +114,10 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 
 ```javascript
 {
-    "uid": "hgeojte3awbrcp76"
+    "uid": "1234"
 }
 ```
-那么，用户注册成功，并且用户ID 为 'hb6oj4vj7sabfxe9'.
+那么，用户注册成功，并且用户ID 为 '1234'.
 
 [Moonbank]: https://www.moonbank.me
 
@@ -125,7 +125,7 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
 
 ## 用户相关接口
 
-### 1. 注册账户
+### 1.注册账户
 
 **HTTP请求**
 
@@ -143,11 +143,12 @@ result 字段为数据实体，需要使用密钥进行AES128 解密，然后进
     }
 ```
 ***request 字段说明***
-|请求字段 | 字段说明|
-| ---------- |:-------:|
-| email     | 邮箱 |
-| mobileNumber     | 手机号 |
-| mobilePrefix     | 手机国家代码  |
+
+|字段|说明|是否必须|类型|
+| ---------- |:-------:|-------|---|
+| email| 邮箱 | YES| String|
+| mobileNumber | 手机号 |YES|String|
+| mobilePrefix | 手机国家代码,比如中国是86，韩国82，日本81等  |YES|String|
 
 ```javascript
     # Response
@@ -163,7 +164,7 @@ result 解密后json字符串
 
 ```javascript
 {
-    "uid": "hgwoxhlpzvav6m2l"
+    "uid": "1234"
 }
 ```
 
@@ -173,6 +174,63 @@ result 解密后json字符串
 |返回字段 | 字段说明|
 | ---------- |:-------:|
 | uid      | 用户ID |
+
+### 2. 设置用户职业及KYC信息
+
+**HTTP请求**
+
+```javascript
+    # Request
+    
+    POST /user/setProfession
+
+    example: https://test.moonbank.me/api-web/user/setProfession
+    
+    #body
+    {
+        "annual_income": "100000",
+        "birthday": "2000-01-01",
+        "country": "CN",
+        "expiry_date": "2027-01-01",
+        "first_name": "ming",
+        "first_name_en": "ming",
+        "id_type": "passport",
+        "last_name": "li",
+        "last_name_en": "li",
+        "number": "123456",
+        "occupation": "boss",
+        "position": "management",
+        "frontImg":"data:image/jpg;base64,xxxxxxxx..........",
+        "backImg":"data:image/jpg;base64,xxxxxxxx.........."
+    }
+```
+
+***需要额外设置的请求头***
+
+需要增加'uId'请求头，值=uid,来自[用户注册](#1.注册账户)返回的数据。
+
+
+***请求字段***
+
+|字段名 | 描述|是否必填|类型|格式|
+| ---------- |:-------:|-------|---|---|
+| first_name     | 用户名 | YES |String||
+| last_name     | 用户姓 |YES|String
+| first_name_en     | 英文用户名  | YES|String
+| last_name_en     | 英文用户姓   | YES|String
+| birthday     | 用户生日   | YES|String| YYYY-MM-DD
+| occupation     | 用户职业   | NO|String
+| position     | 用户职位  | NO|String
+| annual_income     | 用户年收入    | NO|String| 需换算为港币|
+| id_type     | 用户证件类型  | YES|String| 需要是 [证件类型](#证件类型)中的选项|
+| country     | 用户国家代码  | YES|String| 需要是 [国家代码](#国家代码与支持的证件类型)中的选项|
+| number     | 证件号   | YES|String
+| expiry_date     | 证件过期时间   | YES|String| YYYY-MM-DD
+| frontImg     | 证件正面照片  | YES|String| [image format](#图片数据说明)|
+| backImg     | 证件背面照片   | 非必须，护照可以不传该字段，身份证必须传背面图片|String|[image format](#图片数据说明)|
+
+**HTTP 响应**
+公共响应
 
 
 ## 卡片相关接口
@@ -243,3 +301,52 @@ result 解密后json字符串
 | rechargeFee   | 充值费率 |
 | title      | 卡片名称 |
 
+
+# 枚举字段介绍
+
+### 响应码
+|code | 含义|
+| ---------- |:-------:|
+| 1| 成功|
+|2|参数错误|
+|200|业务错误，具体原因查看返回信息|
+|212|账户余额不足 |
+|99997|因外部原因或上游未及时返回处理结果，处理结果稍后由 webhook 通知|
+
+### 证件类型
+|类型 | 描述|
+| ---------- |:-------:|
+| passport| 护照|
+|national-id|身份证|
+
+### 国家代码与支持的证件类型
+|代码 | 国家|是否支持护照| 是否支持身份证|
+| ---------- |:-------:|---|---|
+| CN| 中国大陆| YES|YES|
+|HK|中国香港|YES|YES|
+|KOR|韩国|YES|NO|
+|JP|日本|YES|NO|
+|SG|新加坡|YES|NO|
+|UK|英国|YES|NO|
+|US|美国|YES|NO|
+
+### 卡片状态
+|状态枚举值 | 描述|
+| ---------- |:-------:|
+|AUDITING|卡片审核中|
+|AUDIT_PASS|卡片审核通过|
+|AUDIT_NOT_PASS|卡片审核未通过，需要修改后再次提交审核|
+|TBA|卡片待激活（完成首次充值，卡片自动激活）|
+|ACTIVE_PROCESSING|卡片激活处理中（由于网络或上游业务原因，卡片激活可能无法及时返回结果，需要等待回调通知或主动查询卡片状态，获取处理结果）|
+|ACTIVE|卡片已激活，可正常使用|
+|CLOSE_PROCESSING|卡片销卡处理中（由于网络或上游业务原因，卡片激活可能无法及时返回结果，需要等待回调通知或主动查询卡片状态，获取处理结果）|
+|CLOSE|已销卡|
+|EXCHANGE_PROCESSING|换卡处理中（预留字段）|
+
+# 图片数据说明
+
+[java 示例](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php 示例](./PHP-signature-Demo/image-base64-demo.php)
+
+图片数据需遵循的格式如下 :
+"data:"+ 图片mine信息 +";base64," + 图片base64处理后数据.
+    
