@@ -230,6 +230,7 @@ result 解密后json字符串
 | backImg     | 证件背面照片   | 非必须，护照可以不传该字段，身份证必须传背面图片|String|[image format](#图片数据说明)|
 
 **HTTP 响应**
+
 公共响应
 
 

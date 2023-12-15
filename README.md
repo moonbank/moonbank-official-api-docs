@@ -464,7 +464,20 @@ header 'uId' = uid ,value from [user register](#1-user-register) response;
 
 **HTTP Response**
 
-Common response
+result decrypted json string
+
+```javascript
+    {
+    "requestOrderId":"LM2312151602393234580"
+    }
+```
+
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|requestOrderId| Request unique order No.|
+
 NOTE
 * Physical card recharge will directly return the recharge result. In rare cases, it may not be possible to immediately return results due to communication with upstream networks.
 * The virtual card has some cards with bin cards and cannot directly return recharge results(The [Response code](#response-codes) is 99997). You need to process notify the recharge results in webhook.
@@ -815,7 +828,8 @@ result decrypted json string
 {
 	"appId": "app_447770",
 	"result": "e9ab9e50d2028d6388322aea74544206ce9df7669e474a7c6c2fb7fdce533cb5714915b4dab8d8369caac53dfb9386804aad938ac33d41a16f63871212d12d452f408be1fddc344849bc5c48c22ec8ace2839d29fb5601c2c52966d4f02b3f5e9e0711a4e55334256d9c14e0119d5d9fe9ae35fec26d2059fad87b755c2b384427e08b898f21a91715ef8268736156cf61a10d18d57d4a57700ebecf9e7afd36e2839d29fb5601c2c52966d4f02b3f5e802f0c406dc0145256bec3ee665c43032b44abe0cdb0fe8a5de3dd9871661c0e88edb4830bb9e22d9a81024e2a6c0a0f97208e8bf2de8bddc7b042d707eabab487c48d9b757e89fe0495a37709cf1ed5fe05e9b65ab8af4270d18e7fd0fdf9fb04495d45589367ef5f3bff5ea8d5b291a85c5bf9db14a120fb4176056bd453fce35f1e124d3a7de068d1fc33865ca334d8ffff9da47a110c15a8cc9a3e6bff208e8af3d7dc052e384f56c7df5e28b375693caa79921be63fc220fafe2d135397828a340ea84b6cf0c5d783eeaa39f6647851c063aacb452c49f6858d61e790304e05dbe488826d8257332914dbe6d4ffee4431070b04512b6cc9b34450c5812f45f02ca6c4b601a7ab0ad0f50577b5e88a77ba00280b1132e149e063b3aac78c547f15d7af052ea38581545bfd706a56",
-	"type": "TRANSACTION_CREATED"
+	"type": "TRANSACTION_CREATED",
+    "uniqueNo":"webhook231215160240143136231"    
 }
 ```
 
