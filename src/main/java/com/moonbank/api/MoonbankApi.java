@@ -153,10 +153,11 @@ public class MoonbankApi {
      * @param userBankcardId
      * @param amount
      */
-    public static void rechargeBankcard(String uId, Integer userBankcardId, BigDecimal amount) {
+    public static void rechargeBankcard(String uId, Integer userBankcardId, BigDecimal amount,BigDecimal targetAmount) {
         RechargeBankcardRequest request = new RechargeBankcardRequest();
         request.setUserBankcardId(userBankcardId);
         request.setAmount(amount);
+        request.setTargetAmount(targetAmount);
         String result = postData(uId,MoonbankMethods.RECHARGE_BANKCARD, request);
         System.out.println("rechargeBankcard response String:  " + result);
         ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
@@ -299,17 +300,17 @@ public class MoonbankApi {
     }
 
     public static void main(String[] args) {
-//        getSystemClock();i
+//        getSystemClock();
 
 //        bankcardTemplateList();
 
-//        userRegister("86","23800138000","23800138000@188.com");
+//        userRegister("86","1221111","1221111@188.com");
 //        setUserProfession("35910");
-//        applyBankcard("35910",1,null,"KR");
-        rechargeBankcard("35910",292,new BigDecimal(12));
+//        applyBankcard("35920",12,null,"KR");
+//        rechargeBankcard("35920",332,new BigDecimal(100),new BigDecimal(90));
 
 //        setBankcardPin("35910",136,"123456");
-//        queryBankcardTransactions("35910",292);
+        queryBankcardTransactions("35920",332);
 //        queryBankcardBalance("35910",292);
 //        queryBankcardInfo("35910",292);
 //        userUSDRechargeInfo("35910",new BigDecimal(2));

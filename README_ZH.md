@@ -344,6 +344,33 @@ result 解密后json字符串
 |CLOSE|已销卡|
 |EXCHANGE_PROCESSING|换卡处理中（预留字段）|
 
+### Transaction status （交易状态）
+|status | description|
+| ---------- |:-------:|
+| APPROVED| 成功，确认 |
+|DECLINED |失败，被拒绝 |
+
+### Auth types（授权类型）
+|status | description|
+| ---------- |:-------:|
+| PURCHASE| 消费，支出 |
+|ATM |ATM 取现 |
+
+### Transaction types （交易类型）
+|type | description|
+| ---------- |:-------:|
+|AUTH| 授权消费 |
+|AUTH_QUERY |授权查询|
+|REVERSAL |冲正 |
+|REFUND |退款 |
+|FEE |手续费 |
+|TRADE_PROCESS_FEE |交易处理手续费 |
+|TRADE_CROSS_BOARD_FEE |交易跨境手续费 |
+|TRADE_REFUND_FEE |交易退款手续费|
+|FEE_REVERSAL |手续费冲正 |
+|ORIGINAL_CREDIT | otc 退款|
+|ORIGINAL_CREDIT_REVERSAL |otc 退款冲正|
+
 # 图片数据说明
 
 [java 示例](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php 示例](./PHP-signature-Demo/image-base64-demo.php)

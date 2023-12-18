@@ -1030,6 +1030,35 @@ result decrypted json string
 |CLOSE|Card been closed|
 |EXCHANGE_PROCESSING|Card replacement processing in progress|
 
+### Transaction status
+|status | description|
+| ---------- |:-------:|
+| APPROVED| successful |
+|DECLINED |failed |
+
+### Auth types
+|status | description|
+| ---------- |:-------:|
+| PURCHASE| consumer spending |
+|ATM |ATM withdrawal |
+
+### Transaction types 
+|type | description|
+| ---------- |:-------:|
+|AUTH| Authorized consumption |
+|AUTH_QUERY |Authorized Query|
+|REVERSAL |reversal |
+|REFUND |refund |
+|FEE |fee |
+|TRADE_PROCESS_FEE |trade process fee |
+|TRADE_CROSS_BOARD_FEE |trade cross board fee |
+|TRADE_REFUND_FEE |trade refund fee |
+|FEE_REVERSAL |fee reversal |
+|ORIGINAL_CREDIT | otc refund|
+|ORIGINAL_CREDIT_REVERSAL |otc refund reversal|
+
+
+
 # Image data
 
 [java demo](./src/main/java/com/moonbank/utils/Base64ImgUtil.java) or [php demo](./PHP-signature-Demo/image-base64-demo.php)

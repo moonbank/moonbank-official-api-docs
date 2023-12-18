@@ -8,4 +8,5 @@ import java.math.BigDecimal;
 public class RechargeBankcardRequest extends MbApiBaseRequest{
     private Integer userBankcardId;
     private BigDecimal amount;
+    private BigDecimal targetAmount;
 }
