@@ -820,6 +820,97 @@ result decrypted json string
 |uid| Recharge user ID |
 
 
+## Merchant related APIs
+### 1. Query merchant Asset
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /merchant/asset
+
+    example: https://test.moonbank.me/api-web/merchant/asset
+    
+    #body
+    {
+    }
+```
+
+***request fields***
+
+NONE
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    {
+        "availableAmount": 398.000000000000000000,
+        "currency": "USD",
+        "frozenAmount": 25.000000000000000000
+    }
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|availableAmount| Account available Amount |
+|frozenAmount| Account frozen Amount |
+|currency| currency |
+
+### 2. Query Merchant Recharge records
+
+**HTTP Request**
+
+```javascript
+    # Request
+    
+    POST /merchant/rechargeList
+
+    example: https://test.moonbank.me/api-web/merchant/rechargeList
+    
+    #body
+    {
+        "pageNum": 1,
+        "pageSize": 10,
+    }
+```
+***request fields***
+
+|field | description|required|type|default value|
+| ---------- |:-------:|-------|---|---|
+| pageSize     | Paging query, one page size |NO|Number|10|
+| pageNum     | Paging query, which page |NO |Number|1|
+
+
+**HTTP Response**
+
+result decrypted json string
+
+```javascript
+    [{
+    "id": 572,
+    "operateAmount": 1.000000000000000000,
+    "availableAmount": 2054.050000000000000000,
+    "frozenAmount": 25.000000000000000000,
+    "createAt": 1694511002000,
+    "currency": "USD",
+},
+        ...
+    ]
+```
+**Result fields**
+
+|field | description|
+| ---------- |:-------:|
+|id| unique id |
+|operateAmount| Recharge amount |
+|availableAmount| account available amount after the recharge operation|
+|frozenAmount| account frozen amount after the recharge operation|
+|createAt| recharge time |
+|currency| account currency |
+
 ## Notify related 
 
  ***Response structure***

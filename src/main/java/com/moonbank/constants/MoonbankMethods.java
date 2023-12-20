@@ -39,5 +39,9 @@ public class MoonbankMethods {
 
     public static String USER_ACCOUNT_USER_RECHARGE = "/account/user/rechargeList";
 
+    // 商户资产信息
+    public static String MERCHANT_ASSET = "/merchant/asset";
 
+    // 商户充值记录
+    public static String MERCHANT_RECHARGE = "/merchant/rechargeList";
 }
