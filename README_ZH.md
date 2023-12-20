@@ -345,10 +345,14 @@ result 解密后json字符串
 |EXCHANGE_PROCESSING|换卡处理中（预留字段）|
 
 ### Transaction status （交易状态）
-|status | description|
-| ---------- |:-------:|
-| APPROVED| 成功，确认 |
-|DECLINED |失败，被拒绝 |
+|status | description|卡类型|
+| ---------- |:-------:|:-------:|
+| APPROVED| 成功，确认 |虚拟卡|
+|DECLINED |失败，被拒绝 |实体卡|
+|pending |待处理，待结算 |实体卡|
+|posted |完成结算 | 实体卡|
+|declined |拒绝 |实体卡|
+|vodi |取消 |实体卡|
 
 ### Auth types（授权类型）
 |status | description|
@@ -357,19 +361,28 @@ result 解密后json字符串
 |ATM |ATM 取现 |
 
 ### Transaction types （交易类型）
-|type | description|
-| ---------- |:-------:|
-|AUTH| 授权消费 |
-|AUTH_QUERY |授权查询|
-|REVERSAL |冲正 |
-|REFUND |退款 |
-|FEE |手续费 |
-|TRADE_PROCESS_FEE |交易处理手续费 |
-|TRADE_CROSS_BOARD_FEE |交易跨境手续费 |
-|TRADE_REFUND_FEE |交易退款手续费|
-|FEE_REVERSAL |手续费冲正 |
-|ORIGINAL_CREDIT | otc 退款|
-|ORIGINAL_CREDIT_REVERSAL |otc 退款冲正|
+|type | description|card type|
+| ---------- |:-------:|:-------:|
+|AUTH| 授权消费 |虚拟卡|
+|AUTH_QUERY |授权查询|虚拟卡|
+|REVERSAL |冲正 |虚拟卡|
+|REFUND |退款 |虚拟卡|
+|FEE |手续费,部分卡段跨境手续费 |虚拟卡|
+|TRADE_PROCESS_FEE |交易处理手续费 |虚拟卡|
+|TRADE_CROSS_BOARD_FEE |交易跨境手续费 |虚拟卡|
+|TRADE_REFUND_FEE |交易退款手续费|虚拟卡|
+|FEE_REVERSAL |手续费冲正 |虚拟卡|
+|ORIGINAL_CREDIT | otc 退款,部分卡段退款类型|虚拟卡|
+|ORIGINAL_CREDIT_REVERSAL |otc 退款冲正,部分卡段退款类型|虚拟卡|
+|charge| 支出，消费 |实体卡|
+|refund| 退款 | 实体卡|
+|topup|  充值，加余额 |实体卡|
+|withdraw|  提现 |实体卡|
+|transfer| 转账 |实体卡|
+|cashback| 现金返还 |实体卡|
+|interest| 利息 |实体卡|
+|fee| 手续费 |实体卡|
+|other| 其他类型 |实体卡|
 
 # 图片数据说明
 
