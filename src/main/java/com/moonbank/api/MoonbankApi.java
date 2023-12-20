@@ -346,10 +346,10 @@ public class MoonbankApi {
 //        userRegister("86","1221111","1221111@188.com");
 //        setUserProfession("35910");
 //        applyBankcard("35920",12,null,"KR");
-        rechargeBankcard("35920",332,new BigDecimal(100),new BigDecimal(90));
+//        rechargeBankcard("35920",332,new BigDecimal(100),new BigDecimal(90));
 
 //        setBankcardPin("35910",136,"123456");
-//        queryBankcardTransactions("35920",332);
+        queryBankcardTransactions("35920",332);
 //        queryBankcardBalance("35910",292);
 //        queryBankcardInfo("35910",292);
 //        userUSDRechargeInfo("35910",new BigDecimal(2));

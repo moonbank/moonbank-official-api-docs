@@ -1124,10 +1124,14 @@ result decrypted json string
 |EXCHANGE_PROCESSING|Card replacement processing in progress|
 
 ### Transaction status
-|status | description|
-| ---------- |:-------:|
-| APPROVED| successful |
-|DECLINED |failed |
+|status | description|card type|
+| ---------- |:-------:|:-------:|
+| APPROVED| approved |VIRTUAL Card|
+|DECLINED |declined |VIRTUAL Card|
+|pending |pending |PHYSICAL Card|
+|posted |Done |PHYSICAL Card|
+|declined |Reject |PHYSICAL Card|
+|vodi |Cancel |PHYSICAL Card|
 
 ### Auth types
 |status | description|
@@ -1136,19 +1140,30 @@ result decrypted json string
 |ATM |ATM withdrawal |
 
 ### Transaction types 
-|type | description|
-| ---------- |:-------:|
-|AUTH| Authorized consumption |
-|AUTH_QUERY |Authorized Query|
-|REVERSAL |reversal |
-|REFUND |refund |
-|FEE |fee |
-|TRADE_PROCESS_FEE |trade process fee |
-|TRADE_CROSS_BOARD_FEE |trade cross board fee |
-|TRADE_REFUND_FEE |trade refund fee |
-|FEE_REVERSAL |fee reversal |
-|ORIGINAL_CREDIT | otc refund|
-|ORIGINAL_CREDIT_REVERSAL |otc refund reversal|
+|type | description|card type|
+| ---------- |:-------:|:-------:|
+|AUTH| Authorized consumption |VIRTUAL Card|
+|AUTH_QUERY |Authorized Query|VIRTUAL Card|
+|REVERSAL |reversal |VIRTUAL Card|
+|REFUND |refund |VIRTUAL Card|
+|FEE |fee |VIRTUAL Card|
+|TRADE_PROCESS_FEE |trade process fee |VIRTUAL Card|
+|TRADE_CROSS_BOARD_FEE |trade cross board fee |VIRTUAL Card|
+|TRADE_REFUND_FEE |trade refund fee |VIRTUAL Card|
+|FEE_REVERSAL |fee reversal |VIRTUAL Card|
+|ORIGINAL_CREDIT | otc refund|VIRTUAL Card|
+|ORIGINAL_CREDIT_REVERSAL |otc refund reversal|VIRTUAL Card|
+|charge| charge |PHYSICAL Card|
+|refund| refund |PHYSICAL Card|
+|topup|  topup |PHYSICAL Card|
+|withdraw|  withdraw |PHYSICAL Card|
+|transfer| transfer |PHYSICAL Card|
+|cashback| cashback |PHYSICAL Card|
+|interest| interest |PHYSICAL Card|
+|fee| fee |PHYSICAL Card|
+|other| other types |PHYSICAL Card|
+
+
 
 
 
