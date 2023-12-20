@@ -999,6 +999,7 @@ result decrypted json string
                         "transCurrencyAmt": "+771.20",
                         "transStatus": "posted",
                         "transType": "topup"
+                        "receiptNo": "ef4248e4-d274-4f33-bc8c-ijohoijpojp"
                         },
         "userBankcardId": 145
 }
@@ -1015,6 +1016,7 @@ result decrypted json string
 |transaction.authType| PURCHASE or ATM |
 |transaction.id| Record ID |
 |transaction.recordNo| Record unique No. |
+|transaction.receiptNo| ***Only when the transaction type is transaction fee, there is a value, which is the "recordNo" of the transaction corresponding to the transaction fee*** |
 |transaction.localCurrency| Card Local currency |
 |transaction.localCurrencyAmt| Card Local currency amount |
 |transaction.transCurrency| Card transaction currency |
