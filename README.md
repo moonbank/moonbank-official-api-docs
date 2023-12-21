@@ -703,6 +703,8 @@ result decrypted json string
         "transCurrency": "CNY",
         "transCurrencyAmt": "-21.90",
         "transStatus": "Pending",
+        "respCode":"000000",
+        "respCodeDesc":"success",
         "transType": "Expenditure"
     },
         ...
@@ -723,6 +725,8 @@ result decrypted json string
 |transType| Transaction type |
 |authType| Authorisation type (Purchase or ATM) |
 |merchantName| Merchant name |
+|respCode| Response Code |
+|respCodeDesc| Response code Description |
 
 ## Account related APIs
 ### 1. Query Account Asset
