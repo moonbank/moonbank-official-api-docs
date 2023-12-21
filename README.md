@@ -997,6 +997,7 @@ result decrypted json string
                         "recordNo": "ef4248e4-d274-4f33-bc8c-0fad02b90c07",
                         "transCurrency": "HKD",
                         "transCurrencyAmt": "+771.20",
+                        "merchantName":"GOOGLE *TEMPORARY HOLD",
                         "transStatus": "posted",
                         "transType": "topup"
                         "receiptNo": "ef4248e4-d274-4f33-bc8c-ijohoijpojp"
@@ -1018,6 +1019,7 @@ result decrypted json string
 |transaction.recordNo| Record unique No. |
 |transaction.receiptNo| ***Only when the transaction type is transaction fee, there is a value, which is the "recordNo" of the transaction corresponding to the transaction fee*** |
 |transaction.localCurrency| Card Local currency |
+|transaction.merchantName| Merchant Name |
 |transaction.localCurrencyAmt| Card Local currency amount |
 |transaction.transCurrency| Card transaction currency |
 |transaction.transCurrencyAmt| Card transaction currency amount |
