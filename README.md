@@ -999,6 +999,8 @@ result decrypted json string
                         "transCurrencyAmt": "+771.20",
                         "merchantName":"GOOGLE *TEMPORARY HOLD",
                         "transStatus": "posted",
+                        "respCode":"000000",
+                        "respCodeDesc":"渠道费用",
                         "transType": "topup"
                         "receiptNo": "ef4248e4-d274-4f33-bc8c-ijohoijpojp"
                         },
@@ -1020,6 +1022,8 @@ result decrypted json string
 |transaction.receiptNo| ***Only when the transaction type is transaction fee, there is a value, which is the "recordNo" of the transaction corresponding to the transaction fee*** |
 |transaction.localCurrency| Card Local currency |
 |transaction.merchantName| Merchant Name |
+|transaction.respCode| Response Code |
+|transaction.respCodeDesc| Response code Description |
 |transaction.localCurrencyAmt| Card Local currency amount |
 |transaction.transCurrency| Card transaction currency |
 |transaction.transCurrencyAmt| Card transaction currency amount |
@@ -1164,6 +1168,38 @@ result decrypted json string
 |interest| interest |PHYSICAL Card|
 |fee| fee |PHYSICAL Card|
 |other| other types |PHYSICAL Card|
+
+### Transaction Response Code
+|code | description|card type|
+| ---------- |:-------:|:-------:|
+|000000	|SUCCESS  					|VIRTUAL Card|
+|100001	|FAILED（Account Excetion）  |VIRTUAL Card|
+|200001	|FAILED(Invalid card)    |VIRTUAL Card|
+|200002	|FAILED(Insufficient balance)	|VIRTUAL Card|
+|200003	|FAILED(CVV error)	|VIRTUAL Card|
+|200004	|FAILED(Incorrect expiration date)	|VIRTUAL Card|
+|200005	|FAILED(Incorrect transaction currency)	|VIRTUAL Card|
+|200006	|FAILED(Non multiple card)	|VIRTUAL Card|
+|200007	|FAILED(Exceeding limit)	|VIRTUAL Card|
+|200008	|FAILED(Card abnormality)	|VIRTUAL Card|
+|200009	|FAILED(The number of transactions exceeds the limit)	|VIRTUAL Card|
+|300001	|FAILED(Invalid Merchant)	|VIRTUAL Card|
+|400001	|FAILED(High risk transactions)	|VIRTUAL Card|
+|400002	|FAILED(Invalid amount)	|VIRTUAL Card|
+|400003	|FAILED(Invalid transaction)	|VIRTUAL Card|
+|400004	|FAILED(Unable to find original transaction)	|VIRTUAL Card|
+|400005	|FAILED(The original transaction status is abnormal)	|VIRTUAL Card|
+|400006	|FAILED(This transaction type is not supported)	|VIRTUAL Card
+|400007	|FAILED(Transaction timeout)	|VIRTUAL Card|
+|400008	|FAILED(Rejected by risk control)	|VIRTUAL Card|
+|400009	|FAILED(Channel interception)	|VIRTUAL Card|
+|400010	|FAILED(Refund exceeds the limit)	|VIRTUAL Card|
+|400011	|FAILED(Frequent authorization)	|VIRTUAL Card|
+|400012	|FAILED(Decision rejection)	|VIRTUAL Card|
+|400013	|FAILED(Payment request occurs again after correction)	|VIRTUAL Card
+|999997	|FAILED(Channel abnormality)	|VIRTUAL Card|
+|999998	|FAILED(System upgrade in progress)	|VIRTUAL Card|
+|999999	|FAILED(Unknown exception)	|VIRTUAL Card|
 
 
 
