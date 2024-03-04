@@ -31,7 +31,7 @@ public class MoonbankApi {
     private static final int NOTIFY_CONNECT_TIMEOUT = 1000;
 
     // if use proxy ,set this value true
-    private static boolean useProxy = true;
+    private static boolean useProxy = false;
 
     // proxy ip
     private static String proxyAddress = "127.0.0.1";
@@ -338,20 +338,35 @@ public class MoonbankApi {
         }
     }
 
+    public static void  kycGateway() {
+        KycGatewayRequest request = new KycGatewayRequest();
+        request.setDoneViewURL("https://www.asinx.io/done");
+        request.setTimeoutViewURL("https://www.asinx.io/timeout");
+        String result = postData(null, MoonbankMethods.KYC_GATEWAY, request);
+        System.out.println("kycGateway response String:  " + result);
+        ApiResponse<String> apiResponse = JSON.parseObject(result, new TypeReference<ApiResponse<String>>() {
+        });
+        System.out.println("kycGateway response Object:  " + apiResponse);
+        if (apiResponse.isSuccess()) {
+            String descStr = MoonbankEncryptUtil.decode(APP_SECRET, apiResponse.getResult());
+            System.out.println("kycGateway encode result===>" + descStr);
+        }
+    }
+
     public static void main(String[] args) {
 //        getSystemClock();
 
 //        bankcardTemplateList();
 
 //        userRegister("86","1221111","1221111@188.com");
-//        setUserProfession("35910");
-//        applyBankcard("35920",12,null,"KR");
-//        rechargeBankcard("35920",332,new BigDecimal(100),new BigDecimal(3000));
+//        setUserProfession("35920");
+//        applyBankcard("35920",13,null,"KR");
+//        rechargeBankcard("35920",354,new BigDecimal(8),new BigDecimal(12.8));
 
 //        setBankcardPin("35910",136,"123456");
-        queryBankcardTransactions("35920",332);
-//        queryBankcardBalance("35910",292);
-//        queryBankcardInfo("35910",292);
+//        queryBankcardTransactions("35920",347);
+        queryBankcardBalance("35920",354);
+//        queryBankcardInfo("35920",352);
 //        userUSDRechargeInfo("35910",new BigDecimal(2));
 //        accountAsset();
 //        accountRecharge();

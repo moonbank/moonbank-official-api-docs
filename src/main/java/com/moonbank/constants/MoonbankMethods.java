@@ -44,4 +44,6 @@ public class MoonbankMethods {
 
     // 商户充值记录
     public static String MERCHANT_RECHARGE = "/merchant/rechargeList";
+
+    public static String KYC_GATEWAY = "/kyc/gateway";
 }
